@@ -1,0 +1,30 @@
+CRITICAL - 2024-02-18 07:28:02 --> Invalid file: layouts/title-meta.php
+#0 /home/manggala/freelance/Puskesmas_jember/vendor/codeigniter4/framework/system/View/View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile()
+#1 /home/manggala/freelance/Puskesmas_jember/vendor/codeigniter4/framework/system/Common.php(1097): CodeIgniter\View\View->render()
+#2 /home/manggala/freelance/Puskesmas_jember/app/Controllers/Dashboard.php(8): view()
+#3 /home/manggala/freelance/Puskesmas_jember/vendor/codeigniter4/framework/system/CodeIgniter.php(824): App\Controllers\Dashboard->index()
+#4 /home/manggala/freelance/Puskesmas_jember/vendor/codeigniter4/framework/system/CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController()
+#5 /home/manggala/freelance/Puskesmas_jember/vendor/codeigniter4/framework/system/CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest()
+#6 /home/manggala/freelance/Puskesmas_jember/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#7 /home/manggala/freelance/Puskesmas_jember/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('...')
+#8 {main}
+CRITICAL - 2024-02-18 07:30:13 --> Invalid file: layouts-hori-topbar-dark.php
+#0 /home/manggala/freelance/Puskesmas_jember/vendor/codeigniter4/framework/system/View/View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile()
+#1 /home/manggala/freelance/Puskesmas_jember/vendor/codeigniter4/framework/system/Common.php(1097): CodeIgniter\View\View->render()
+#2 /home/manggala/freelance/Puskesmas_jember/app/Controllers/Home.php(43): view()
+#3 /home/manggala/freelance/Puskesmas_jember/vendor/codeigniter4/framework/system/CodeIgniter.php(824): App\Controllers\Home->show_layouts_hori_topbar_dark()
+#4 /home/manggala/freelance/Puskesmas_jember/vendor/codeigniter4/framework/system/CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController()
+#5 /home/manggala/freelance/Puskesmas_jember/vendor/codeigniter4/framework/system/CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest()
+#6 /home/manggala/freelance/Puskesmas_jember/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#7 /home/manggala/freelance/Puskesmas_jember/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('...')
+#8 {main}
+CRITICAL - 2024-02-18 17:45:35 --> Invalid file: layouts-dark-sidebar.php
+#0 /home/manggala/freelance/Puskesmas_jember/vendor/codeigniter4/framework/system/View/View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile()
+#1 /home/manggala/freelance/Puskesmas_jember/vendor/codeigniter4/framework/system/Common.php(1097): CodeIgniter\View\View->render()
+#2 /home/manggala/freelance/Puskesmas_jember/app/Controllers/Home.php(35): view()
+#3 /home/manggala/freelance/Puskesmas_jember/vendor/codeigniter4/framework/system/CodeIgniter.php(824): App\Controllers\Home->show_layouts_dark_sidebar()
+#4 /home/manggala/freelance/Puskesmas_jember/vendor/codeigniter4/framework/system/CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController()
+#5 /home/manggala/freelance/Puskesmas_jember/vendor/codeigniter4/framework/system/CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest()
+#6 /home/manggala/freelance/Puskesmas_jember/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#7 /home/manggala/freelance/Puskesmas_jember/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('...')
+#8 {main}

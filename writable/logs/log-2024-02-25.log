@@ -1,0 +1,70 @@
+CRITICAL - 2024-02-25 21:28:48 --> Call to undefined method App\Models\UserModel::last
+#0 /home/manggala/freelance/Puskesmas_jember/app/Views/datamaster/user.php(9): CodeIgniter\Model->__call()
+#1 /home/manggala/freelance/Puskesmas_jember/vendor/codeigniter4/framework/system/View/View.php(214): include('...')
+#2 /home/manggala/freelance/Puskesmas_jember/vendor/codeigniter4/framework/system/View/View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 /home/manggala/freelance/Puskesmas_jember/vendor/codeigniter4/framework/system/Common.php(1097): CodeIgniter\View\View->render()
+#4 /home/manggala/freelance/Puskesmas_jember/app/Controllers/User.php(26): view()
+#5 /home/manggala/freelance/Puskesmas_jember/vendor/codeigniter4/framework/system/CodeIgniter.php(824): App\Controllers\User->index()
+#6 /home/manggala/freelance/Puskesmas_jember/vendor/codeigniter4/framework/system/CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController()
+#7 /home/manggala/freelance/Puskesmas_jember/vendor/codeigniter4/framework/system/CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest()
+#8 /home/manggala/freelance/Puskesmas_jember/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#9 /home/manggala/freelance/Puskesmas_jember/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('...')
+#10 {main}
+CRITICAL - 2024-02-25 21:49:33 --> Undefined constant "csrf_field"
+#0 /home/manggala/freelance/Puskesmas_jember/vendor/codeigniter4/framework/system/View/View.php(214): include()
+#1 /home/manggala/freelance/Puskesmas_jember/vendor/codeigniter4/framework/system/View/View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#2 /home/manggala/freelance/Puskesmas_jember/vendor/codeigniter4/framework/system/Common.php(1097): CodeIgniter\View\View->render()
+#3 /home/manggala/freelance/Puskesmas_jember/app/Controllers/User.php(26): view()
+#4 /home/manggala/freelance/Puskesmas_jember/vendor/codeigniter4/framework/system/CodeIgniter.php(824): App\Controllers\User->index()
+#5 /home/manggala/freelance/Puskesmas_jember/vendor/codeigniter4/framework/system/CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController()
+#6 /home/manggala/freelance/Puskesmas_jember/vendor/codeigniter4/framework/system/CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest()
+#7 /home/manggala/freelance/Puskesmas_jember/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#8 /home/manggala/freelance/Puskesmas_jember/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('...')
+#9 {main}
+CRITICAL - 2024-02-25 22:05:45 --> Allowed fields must be specified for model: App\Models\UserModel
+#0 /home/manggala/freelance/Puskesmas_jember/vendor/codeigniter4/framework/system/BaseModel.php(1138): CodeIgniter\Database\Exceptions\DataException::forInvalidAllowedFields()
+#1 /home/manggala/freelance/Puskesmas_jember/vendor/codeigniter4/framework/system/BaseModel.php(713): CodeIgniter\BaseModel->doProtectFields()
+#2 /home/manggala/freelance/Puskesmas_jember/vendor/codeigniter4/framework/system/Model.php(620): CodeIgniter\BaseModel->insert()
+#3 /home/manggala/freelance/Puskesmas_jember/app/Controllers/User.php(73): CodeIgniter\Model->insert()
+#4 /home/manggala/freelance/Puskesmas_jember/vendor/codeigniter4/framework/system/CodeIgniter.php(824): App\Controllers\User->create()
+#5 /home/manggala/freelance/Puskesmas_jember/vendor/codeigniter4/framework/system/CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController()
+#6 /home/manggala/freelance/Puskesmas_jember/vendor/codeigniter4/framework/system/CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest()
+#7 /home/manggala/freelance/Puskesmas_jember/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#8 /home/manggala/freelance/Puskesmas_jember/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('...')
+#9 {main}
+ERROR - 2024-02-25 22:07:27 --> Unknown column 'file' in 'field list'
+CRITICAL - 2024-02-25 22:07:27 --> Unknown column 'file' in 'field list'
+#0 /home/manggala/freelance/Puskesmas_jember/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(292): mysqli->query()
+#1 /home/manggala/freelance/Puskesmas_jember/vendor/codeigniter4/framework/system/Database/BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute()
+#2 /home/manggala/freelance/Puskesmas_jember/vendor/codeigniter4/framework/system/Database/BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery()
+#3 /home/manggala/freelance/Puskesmas_jember/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1759): CodeIgniter\Database\BaseConnection->query()
+#4 /home/manggala/freelance/Puskesmas_jember/vendor/codeigniter4/framework/system/Model.php(239): CodeIgniter\Database\BaseBuilder->insert()
+#5 /home/manggala/freelance/Puskesmas_jember/vendor/codeigniter4/framework/system/BaseModel.php(738): CodeIgniter\Model->doInsert()
+#6 /home/manggala/freelance/Puskesmas_jember/vendor/codeigniter4/framework/system/Model.php(620): CodeIgniter\BaseModel->insert()
+#7 /home/manggala/freelance/Puskesmas_jember/app/Controllers/User.php(73): CodeIgniter\Model->insert()
+#8 /home/manggala/freelance/Puskesmas_jember/vendor/codeigniter4/framework/system/CodeIgniter.php(824): App\Controllers\User->create()
+#9 /home/manggala/freelance/Puskesmas_jember/vendor/codeigniter4/framework/system/CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController()
+#10 /home/manggala/freelance/Puskesmas_jember/vendor/codeigniter4/framework/system/CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest()
+#11 /home/manggala/freelance/Puskesmas_jember/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#12 /home/manggala/freelance/Puskesmas_jember/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('...')
+#13 {main}
+CRITICAL - 2024-02-25 22:13:27 --> Declaration of App\Controllers\User::update($id) must be compatible with CodeIgniter\RESTful\ResourceController::update($id = null)
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2024-02-25 22:16:15 --> Undefined variable $model
+#0 /home/manggala/freelance/Puskesmas_jember/app/Controllers/User.php(72): CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /home/manggala/freelance/Puskesmas_jember/vendor/codeigniter4/framework/system/CodeIgniter.php(824): App\Controllers\User->create()
+#2 /home/manggala/freelance/Puskesmas_jember/vendor/codeigniter4/framework/system/CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController()
+#3 /home/manggala/freelance/Puskesmas_jember/vendor/codeigniter4/framework/system/CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest()
+#4 /home/manggala/freelance/Puskesmas_jember/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#5 /home/manggala/freelance/Puskesmas_jember/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('...')
+#6 {main}
+CRITICAL - 2024-02-25 22:17:45 --> The original file is not a valid file.
+#0 /home/manggala/freelance/Puskesmas_jember/vendor/codeigniter4/framework/system/HTTP/Files/UploadedFile.php(137): CodeIgniter\HTTP\Exceptions\HTTPException::forInvalidFile()
+#1 /home/manggala/freelance/Puskesmas_jember/app/Controllers/User.php(70): CodeIgniter\HTTP\Files\UploadedFile->move()
+#2 /home/manggala/freelance/Puskesmas_jember/vendor/codeigniter4/framework/system/CodeIgniter.php(824): App\Controllers\User->create()
+#3 /home/manggala/freelance/Puskesmas_jember/vendor/codeigniter4/framework/system/CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController()
+#4 /home/manggala/freelance/Puskesmas_jember/vendor/codeigniter4/framework/system/CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest()
+#5 /home/manggala/freelance/Puskesmas_jember/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#6 /home/manggala/freelance/Puskesmas_jember/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('...')
+#7 {main}

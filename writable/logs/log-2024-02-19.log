@@ -1,0 +1,65 @@
+CRITICAL - 2024-02-19 13:24:59 --> Call to undefined method CodeIgniter\Router\RouteCollection::setDefaultpasienpace()
+#0 /home/manggala/freelance/Puskesmas_jember/vendor/codeigniter4/framework/system/CodeIgniter.php(705): require()
+#1 /home/manggala/freelance/Puskesmas_jember/vendor/codeigniter4/framework/system/CodeIgniter.php(359): CodeIgniter\CodeIgniter->tryToRouteIt()
+#2 /home/manggala/freelance/Puskesmas_jember/vendor/codeigniter4/framework/system/CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest()
+#3 /home/manggala/freelance/Puskesmas_jember/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#4 /home/manggala/freelance/Puskesmas_jember/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('...')
+#5 {main}
+CRITICAL - 2024-02-19 13:26:01 --> Undefined constant "Config\routes"
+#0 /home/manggala/freelance/Puskesmas_jember/vendor/codeigniter4/framework/system/CodeIgniter.php(705): require()
+#1 /home/manggala/freelance/Puskesmas_jember/vendor/codeigniter4/framework/system/CodeIgniter.php(359): CodeIgniter\CodeIgniter->tryToRouteIt()
+#2 /home/manggala/freelance/Puskesmas_jember/vendor/codeigniter4/framework/system/CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest()
+#3 /home/manggala/freelance/Puskesmas_jember/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#4 /home/manggala/freelance/Puskesmas_jember/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('...')
+#5 {main}
+CRITICAL - 2024-02-19 13:26:57 --> Undefined constant "Config\routes"
+#0 /home/manggala/freelance/Puskesmas_jember/vendor/codeigniter4/framework/system/CodeIgniter.php(705): require()
+#1 /home/manggala/freelance/Puskesmas_jember/vendor/codeigniter4/framework/system/CodeIgniter.php(359): CodeIgniter\CodeIgniter->tryToRouteIt()
+#2 /home/manggala/freelance/Puskesmas_jember/vendor/codeigniter4/framework/system/CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest()
+#3 /home/manggala/freelance/Puskesmas_jember/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#4 /home/manggala/freelance/Puskesmas_jember/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('...')
+#5 {main}
+CRITICAL - 2024-02-19 13:30:56 --> Undefined variable $pagetitle
+#0 /home/manggala/freelance/Puskesmas_jember/app/Views/partials/page-title.php(9): CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /home/manggala/freelance/Puskesmas_jember/vendor/codeigniter4/framework/system/View/View.php(214): include('...')
+#2 /home/manggala/freelance/Puskesmas_jember/vendor/codeigniter4/framework/system/View/View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 /home/manggala/freelance/Puskesmas_jember/vendor/codeigniter4/framework/system/Common.php(1097): CodeIgniter\View\View->render()
+#4 /home/manggala/freelance/Puskesmas_jember/app/Controllers/Masterdata.php(10): view()
+#5 /home/manggala/freelance/Puskesmas_jember/vendor/codeigniter4/framework/system/CodeIgniter.php(824): App\Controllers\Masterdata->pasien()
+#6 /home/manggala/freelance/Puskesmas_jember/vendor/codeigniter4/framework/system/CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController()
+#7 /home/manggala/freelance/Puskesmas_jember/vendor/codeigniter4/framework/system/CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest()
+#8 /home/manggala/freelance/Puskesmas_jember/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#9 /home/manggala/freelance/Puskesmas_jember/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('...')
+#10 {main}
+CRITICAL - 2024-02-19 13:31:43 --> Undefined variable $pagetitle
+#0 /home/manggala/freelance/Puskesmas_jember/app/Views/partials/page-title.php(9): CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /home/manggala/freelance/Puskesmas_jember/vendor/codeigniter4/framework/system/View/View.php(214): include('...')
+#2 /home/manggala/freelance/Puskesmas_jember/vendor/codeigniter4/framework/system/View/View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 /home/manggala/freelance/Puskesmas_jember/vendor/codeigniter4/framework/system/Common.php(1097): CodeIgniter\View\View->render()
+#4 /home/manggala/freelance/Puskesmas_jember/app/Controllers/Masterdata.php(10): view()
+#5 /home/manggala/freelance/Puskesmas_jember/vendor/codeigniter4/framework/system/CodeIgniter.php(824): App\Controllers\Masterdata->pasien()
+#6 /home/manggala/freelance/Puskesmas_jember/vendor/codeigniter4/framework/system/CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController()
+#7 /home/manggala/freelance/Puskesmas_jember/vendor/codeigniter4/framework/system/CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest()
+#8 /home/manggala/freelance/Puskesmas_jember/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#9 /home/manggala/freelance/Puskesmas_jember/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('...')
+#10 {main}
+CRITICAL - 2024-02-19 13:40:18 --> Invalid file: datamaster.pasien
+#0 /home/manggala/freelance/Puskesmas_jember/vendor/codeigniter4/framework/system/View/View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile()
+#1 /home/manggala/freelance/Puskesmas_jember/vendor/codeigniter4/framework/system/Common.php(1097): CodeIgniter\View\View->render()
+#2 /home/manggala/freelance/Puskesmas_jember/app/Controllers/Masterdata.php(12): view()
+#3 /home/manggala/freelance/Puskesmas_jember/vendor/codeigniter4/framework/system/CodeIgniter.php(824): App\Controllers\Masterdata->pasien()
+#4 /home/manggala/freelance/Puskesmas_jember/vendor/codeigniter4/framework/system/CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController()
+#5 /home/manggala/freelance/Puskesmas_jember/vendor/codeigniter4/framework/system/CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest()
+#6 /home/manggala/freelance/Puskesmas_jember/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#7 /home/manggala/freelance/Puskesmas_jember/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('...')
+#8 {main}
+CRITICAL - 2024-02-19 13:41:22 --> Invalid file: <datamaster>pasien.php
+#0 /home/manggala/freelance/Puskesmas_jember/vendor/codeigniter4/framework/system/View/View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile()
+#1 /home/manggala/freelance/Puskesmas_jember/vendor/codeigniter4/framework/system/Common.php(1097): CodeIgniter\View\View->render()
+#2 /home/manggala/freelance/Puskesmas_jember/app/Controllers/Masterdata.php(12): view()
+#3 /home/manggala/freelance/Puskesmas_jember/vendor/codeigniter4/framework/system/CodeIgniter.php(824): App\Controllers\Masterdata->pasien()
+#4 /home/manggala/freelance/Puskesmas_jember/vendor/codeigniter4/framework/system/CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController()
+#5 /home/manggala/freelance/Puskesmas_jember/vendor/codeigniter4/framework/system/CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest()
+#6 /home/manggala/freelance/Puskesmas_jember/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#7 /home/manggala/freelance/Puskesmas_jember/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('...')
+#8 {main}

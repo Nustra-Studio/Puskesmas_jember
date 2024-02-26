@@ -6,3 +6,5 @@
 <script src="/assets/libs/node-waves/waves.min.js"></script>
 <script src="/assets/libs/waypoints/lib/jquery.waypoints.min.js"></script>
 <script src="/assets/libs/jquery.counterup/jquery.counterup.min.js"></script>
+<script src="assets/libs/sweetalert2/sweetalert2.min.js"></script>
+<script src="assets/js/pages/sweet-alerts.init.js"></script>
