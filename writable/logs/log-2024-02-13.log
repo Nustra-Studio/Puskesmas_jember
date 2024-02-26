@@ -12,4 +12,7 @@ ERROR - 2024-02-13 09:47:04 --> Error connecting to the database: No such file o
 ERROR - 2024-02-13 09:47:56 --> Error connecting to the database: No such file or directory
 ERROR - 2024-02-13 09:50:23 --> Error connecting to the database: No such file or directory
 ERROR - 2024-02-13 09:52:12 --> Error connecting to the database: No such file or directory
+<<<<<<< HEAD
 ERROR - 2024-02-13 10:00:39 --> Error connecting to the database: No such file or directory
+=======
+>>>>>>> 9cabbd98071b7eb516a66736afdf499132bab616

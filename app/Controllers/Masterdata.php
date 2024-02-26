@@ -2,6 +2,7 @@
 
 class Masterdata extends BaseController
 {
+<<<<<<< HEAD
     // -------------------------------------------------Pasien------------------------------------------
     public function pasien()
 	{
@@ -48,4 +49,7 @@ class Masterdata extends BaseController
 		// Add functionality here
 	}
 	// ----------------------------------------------------user End------------------------------------------
+=======
+    
+>>>>>>> 9cabbd98071b7eb516a66736afdf499132bab616
 }
