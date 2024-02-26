@@ -144,14 +144,11 @@ class User extends ResourceController
             $this->model->update($id, $data);
         }
     
-        echo "<script>
-        Swal.fire({
-            icon: 'success',
-            title: 'Success!',
-            text: 'Data has been updated successfully!',
-        });
-    </script>";
-    return view('datamaster/user', $this->namepage);
+        // return view('datamaster/user', $this->namepage);
+        return redirect()->to(site_url('/user'))
+        ->with('namepage', $this->namepage)
+        ->with('success', "sukses");
+
     }
     
 
