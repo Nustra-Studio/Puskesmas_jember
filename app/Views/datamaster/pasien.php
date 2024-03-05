@@ -147,9 +147,22 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="d-flex flex-wrap gap-3 mt-3">
-                                                                    <button type="submit" class="btn btn-primary waves-effect waves-light w-md">Submit</button>
-                                                                    <button type="reset" class="btn btn-outline-danger waves-effect waves-light w-md">Reset</button>
-                                                                </div>
+                                                                <!-- <button
+                                                                    data-bs-toggle="modal" 
+                                                                    data-bs-target=".bs-<?=$item['id'] ?>-edit-modal-lg" 
+                                                                    type="button" class="btn btn-primary waves-effect waves-light" id="">
+                                                                        <i class="uil uil-pen"></i>
+                                                                </button>
+                                                                    <button
+                                                                    id="deleteBtn" 
+                                                                    data-id="<?= $item['id'] ?>" 
+                                                                    data-name="<?= $item['name'] ?>"
+                                                                    data-url="user"
+                                                                    type="button" 
+                                                                    class="deleteBtn btn btn-danger waves-effect waves-light">
+                                                                        <i class="uil uil-trash-alt"></i>
+                                                                </button>         -->
+                                                            </div>
                                                             </form>
                                                         </div>
                                                     </div>

@@ -1,0 +1,7 @@
+composer.lock
+.env
+app/Config/App.php
+tests
+public/null
+writable/debugbar
+writable/logs

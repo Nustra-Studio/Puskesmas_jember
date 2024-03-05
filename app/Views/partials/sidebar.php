@@ -5,19 +5,19 @@
     <div class="navbar-brand-box">
         <a href="/" class="logo logo-dark">
             <span class="logo-sm">
-                <img src="assets/images/logo-sm.png" alt="" height="22">
+                <img src="<?php echo base_url('assets/images/logo-sm.png'); ?>" alt="" height="22">
             </span>
             <span class="logo-lg">
-                <img src="assets/images/logo-dark.png" alt="" height="20">
+                <img src="<?php echo base_url('assets/images/logo-dark.png'); ?>" alt="" height="20">
             </span>
         </a>
 
         <a href="/" class="logo logo-light">
             <span class="logo-sm">
-                <img src="assets/images/logo-sm.png" alt="" height="22">
+                <img src="<?php echo base_url('assets/images/logo-sm.png'); ?>" alt="" height="22">
             </span>
             <span class="logo-lg">
-                <img src="assets/images/logo-light.png" alt="" height="20">
+                <img src="<?php echo base_url('assets/images/logo-light.png'); ?>" alt="" height="20">
             </span>
         </a>
     </div>
@@ -34,7 +34,7 @@
             <ul class="metismenu list-unstyled" id="side-menu">
 
                 <li>
-                    <a href="/">
+                    <a href="<?php echo base_url('/'); ?>">
                         <i class="uil-home-alt"></i>
                         <span><?= lang('Files.Dashboard') ?></span>
                     </a>
@@ -47,17 +47,24 @@
                     </a>
                     <ul class="sub-menu" aria-expanded="true">
                         <li>
+                            <a href="<?php echo base_url('pasien'); ?>">Data Pasien</a>
+                        </li>
                         <li>
-                                <a href="pasien">Data Pasien</a></li>
-                                <li><a href="user">Data User</a></li>
-                                <li><a href="diagnosis">Data Diagnosis</a></li>
-                                <li><a href="tindakan">Data Tindakan</a></li>
-                                <li><a href="obat">Data Obat</a></li>
+                            <a href="<?php echo base_url('user'); ?>">Data User</a>
+                        </li>
+                        <li>
+                            <a href="<?php echo base_url('diagnosis'); ?>">Data Diagnosis</a>
+                        </li>
+                        <li>
+                            <a href="<?php echo base_url('tindakan'); ?>">Data Tindakan</a>
+                        </li>
+                        <li>
+                            <a href="<?php echo base_url('obat'); ?>">Data Obat</a>
                         </li>
                     </ul>
                 </li>
                 <li>
-                    <a href="/pendaftaran">
+                    <a href="<?php echo base_url('pendaftaran'); ?>">
                         <i class="uil-clipboard-notes"></i>
                         <span>Pendaftaran</span>
                     </a>
@@ -69,12 +76,19 @@
                     </a>
                     <ul class="sub-menu" aria-expanded="true">
                         <li>
+                            <a href="<?php echo base_url('rekam-pasien'); ?>">Data Pasien</a>
+                        </li>
                         <li>
-                                <a href="rekam-pasien">Data Pasien</a></li>
-                                <li><a href="rekam-user">Anamnese</a></li>
-                                <li><a href="rekam-diagnosis">Diagnosis</a></li>
-                                <li><a href="rekam-tindakan">Tindakan</a></li>
-                                <li><a href="rekam-obat">Obat</a></li>
+                            <a href="<?php echo base_url('rekam-user'); ?>">Anamnese</a>
+                        </li>
+                        <li>
+                            <a href="<?php echo base_url('rekam-diagnosis'); ?>">Diagnosis</a>
+                        </li>
+                        <li>
+                            <a href="<?php echo base_url('rekam-tindakan'); ?>">Tindakan</a>
+                        </li>
+                        <li>
+                            <a href="<?php echo base_url('rekam-obat'); ?>">Obat</a>
                         </li>
                     </ul>
                 </li>

@@ -1,10 +1,44 @@
 <!-- JAVASCRIPT -->
-<script src="/assets/libs/jquery/jquery.min.js"></script>
-<script src="/assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="/assets/libs/metismenu/metisMenu.min.js"></script>
-<script src="/assets/libs/simplebar/simplebar.min.js"></script>
-<script src="/assets/libs/node-waves/waves.min.js"></script>
-<script src="/assets/libs/waypoints/lib/jquery.waypoints.min.js"></script>
-<script src="/assets/libs/jquery.counterup/jquery.counterup.min.js"></script>
-<script src="assets/libs/sweetalert2/sweetalert2.min.js"></script>
-<script src="assets/js/pages/sweet-alerts.init.js"></script>
+<script src="<?=base_url('/assets/libs/jquery/jquery.min.js')?>"></script>
+<script src="<?=base_url('/assets/libs/bootstrap/js/bootstrap.bundle.min.js')?>"></script>
+<script src="<?=base_url('/assets/libs/metismenu/metisMenu.min.js')?>"></script>
+<script src="<?=base_url('/assets/libs/simplebar/simplebar.min.js')?>"></script>
+<script src="<?=base_url('/assets/libs/node-waves/waves.min.js')?>"></script>
+<script src="<?=base_url('/assets/libs/waypoints/lib/jquery.waypoints.min.js')?>"></script>
+<script src="<?=base_url('/assets/libs/jquery.counterup/jquery.counterup.min.js')?>"></script>
+<script src="<?=base_url('/assets/libs/sweetalert2/sweetalert2.min.js')?>"></script>
+<script src="<?=base_url('/assets/js/pages/sweet-alerts.init.js')?>"></script>
+<script>
+$(document).ready(function() {
+    $('.deleteBtn').click(function() {
+        var Id = $(this).data('id');
+        var Name = $(this).data('name');
+        var url = $(this).data('url');
+        Swal.fire({
+            title: 'Apakah Kamu yakin?',
+            text: "Untuk Mendelete data ini (" + Name + "). Jika Dilakukan Tidak Dapat di Kembalikan!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#34c38f',
+            cancelButtonColor: '#f46a6a',
+            confirmButtonText: 'Yes, delete it!'
+        }).then(function(result) {
+            if (result.isConfirmed) {
+                $.ajax({
+                    type: 'POST',
+                    url: '/'+ url +'/delete/' + Id,
+                    success: function(response) {
+                        Swal.fire('Deleted!', 'The record has been deleted.', 'success')
+                        .then(function() {
+                                location.reload();
+                            });
+                    },
+                    error: function(xhr, status, error) {
+                        Swal.fire('Error!', 'An error occurred while deleting the record.', 'error');
+                    }
+                });
+            }
+        });
+    });
+});
+</script>

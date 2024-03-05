@@ -159,8 +159,11 @@ class User extends ResourceController
      */
     public function delete($id = null)
     {
+        $data = $this->model->find($id);
+        if (!$data) {
+            return $this->response->setStatusCode(404)->setBody('Record not found');
+        }
         $this->model->delete($id);
-    
-        return view('datamaster/user', $this->namepage);
+        return $this->response->setStatusCode(200)->setBody('Record deleted successfully');
     }
 }

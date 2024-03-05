@@ -52,13 +52,15 @@
                             <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                                 <thead>
                                     <tr>
-                                        <th>No</th>
-                                        <th>Id User</th>
-                                        <th>Nama</th>
-                                        <th>Tgl Lahir</th>
-                                        <th>Alamat</th>
-                                        <th>Jabatan</th>
-                                        <th>Action</th>
+                                            <th class="text-center">No</th>
+                                            <th class="text-center">Tanggal</th>
+                                            <th class="text-center">Poli</th>
+                                            <th class="text-center">No RM</th>
+                                            <th class="text-center">Nama Pasien</th>
+                                            <th class="text-center">Usia</th>
+                                            <th class="text-center">Alamat</th>
+                                            <th class="text-center">Jenis Pasien</th>
+                                            <th class="text-center">Action</th>
                                     </tr>
                                 </thead>
 
@@ -69,12 +71,14 @@
                                             $tanggal_lahir = date("Y-m-d", strtotime($dateString));
                                         ?>
                                     <tr>
-                                            <td><?=$index +1 ?></td>
-                                            <td><?=$item['id'] ?></td>
-                                            <td><?=$item['name'] ?></td>
-                                            <td><?=$tanggal_lahir ?></td>
-                                            <td><?=$item['alamat'] ?></td>
-                                            <td><?=$item['jabatan'] ?></td>
+                                            <td class="text-center">1</td>
+                                            <td class="text-center">1/11/2023 04:00</td>
+                                            <td class="text-center">Umum</td>
+                                            <td class="text-center">0001</td>
+                                            <td class="text-center">Jane Cooper</td>
+                                            <td class="text-center">30</td>
+                                            <td class="text-center">2464 Royal Ln Mesa</td>
+                                            <td class="text-center">BPJS</td>
                                             <td> 
                                                 <button
                                                 data-bs-toggle="modal" 
@@ -185,7 +189,7 @@
                     </div>
                 </div> <!-- end col -->
             </div> <!-- end row -->
-            <?= $this->include('datamaster/addon/user/ModalCreate') ?>
+            <?= $this->include('rekammedis/addon/pendaftaran/ModalCreate') ?>
             </div> <!-- container-fluid -->
         </div>
         <!-- End Page-content -->

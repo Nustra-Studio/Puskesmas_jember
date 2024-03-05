@@ -14,8 +14,30 @@ class PasienModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = [];
-
+    protected $allowedFields = [
+        'id_rekammedis',
+        'tanggal_daftar',
+        'ktp',
+        'bpjs',
+        'nama',
+        'lahir',
+        'usia',
+        'gender',
+        'category',
+        'payment',
+        'alamat',
+        'no_hp',
+        'agama',
+        'gol_darah',
+        'pekerjaan',
+        'pendidikan',
+        'ayah',
+        'ibu',
+        'hubungi',
+        'poli',
+        'created_at',
+        'updated_at',
+    ];
     // Dates
     protected $useTimestamps = false;
     protected $dateFormat    = 'datetime';

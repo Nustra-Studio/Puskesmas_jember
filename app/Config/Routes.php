@@ -30,16 +30,24 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
+// $routes->get('login', 'User::login');
+$routes->post('auth/login', 'User::login');
+$routes->get('logout', 'User::logout');
 $routes->get('/template', 'Home::index');
 $routes->get('/','Dashboard::index');
 $routes->get('/lang/{locale}', 'Language::index');
 $routes->resource('user');
+$routes->resource('diagnosis');
+$routes->resource('tindakan');
+$routes->resource('obat');
+$routes->resource('pendaftaran');
 	// Pasien
 $routes->get('/pasien', 'Masterdata::pasien');
 $routes->add('/pasien/create', 'Masterdata::pasienstore');
 $routes->get('/pasien/edit/(:num)', 'Masterdata::pasienedit/$1');
 $routes->add('/pasien/update/(:num)', 'Masterdata::pasienupdate/$1');
 $routes->get('/pasien/delete/(:num)', 'Masterdata::pasiendelete/$1');
+$routes->get('/login', 'PageController::show_auth_login');
 
 
 	

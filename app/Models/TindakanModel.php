@@ -14,7 +14,7 @@ class TindakanModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = [];
+    protected $allowedFields    = ['kode','name'];
 
     // Dates
     protected $useTimestamps = false;

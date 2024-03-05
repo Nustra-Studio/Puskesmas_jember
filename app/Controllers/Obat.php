@@ -3,9 +3,9 @@
 namespace App\Controllers;
 
 use CodeIgniter\RESTful\ResourceController;
-use App\Models\UserModel;
+use App\Models\ObatModel;
 
-class Pendaftaran extends ResourceController
+class Obat extends ResourceController
 {
     /**
      * Return an array of resource objects, themselves in array format
@@ -15,16 +15,16 @@ class Pendaftaran extends ResourceController
     protected $model;
     function __construct()
     {
-        $this->model = new UserModel();
+        $this->model = new ObatModel();
         $this->namepage =[
-			'title_meta' => view('partials/title-meta', ['title' => 'Pendaftaran ']),
-			'page_title' => view('partials/page-title', ['title' => 'Pendaftaran'])
+			'title_meta' => view('partials/title-meta', ['title' => 'Master Data Obat']),
+			'page_title' => view('partials/page-title', ['title' => 'Masterdata Obat'])
 		];
     }
     public function index()
     {
 
-		return view('rekammedis/Pendaftaran', $this->namepage);
+		return view('datamaster/Obat', $this->namepage);
     }
 
     /**
@@ -56,22 +56,14 @@ class Pendaftaran extends ResourceController
     {
         $data = [
             'name' => $this->request->getPost('name'),
-            'tanggal_lahir' => $this->request->getPost('tanggal_lahir'),
-            'gender' => $this->request->getPost('gender'),
-            'jabatan' => $this->request->getPost('jabatan'),
-            'username' => $this->request->getPost('username'),
-            'password' => password_hash($this->request->getPost('password'), PASSWORD_DEFAULT), // Hash password sebelum disimpan ke database
-            'alamat' => $this->request->getPost('alamat'),
-            'foto' => $this->request->getFile('file')->getName(), // Contoh menyimpan nama file, sesuaikan dengan kebutuhan Anda
+            'kode' => $this->request->getPost('kode'),
         ];
-
-        // Upload file ke folder tertentu (opsional)
-        $file = $this->request->getFile('file');
-        $file->move(ROOTPATH . 'public/uploads');
 
         $this->model->insert($data);
 
-        return view('datamaster/user', $this->namepage);
+        return redirect()->to(site_url('/obat'))
+        ->with('namepage', $this->namepage)
+        ->with('success', "sukses");
     }
 
     /**
@@ -107,36 +99,8 @@ class Pendaftaran extends ResourceController
             $data['name'] = $this->request->getPost('name');
         }
     
-        if ($this->request->getPost('tanggal_lahir')) {
-            $data['tanggal_lahir'] = $this->request->getPost('tanggal_lahir');
-        }
-    
-        if ($this->request->getPost('gender')) {
-            $data['gender'] = $this->request->getPost('gender');
-        }
-    
-        if ($this->request->getPost('jabatan')) {
-            $data['jabatan'] = $this->request->getPost('jabatan');
-        }
-    
-        if ($this->request->getPost('username')) {
-            $data['username'] = $this->request->getPost('username');
-        }
-    
-        // Periksa apakah password baru diinput, jika ya, hash dan tambahkan ke data
-        $password = $this->request->getPost('password');
-        if (!empty($password)) {
-            $data['password'] = password_hash($password, PASSWORD_DEFAULT);
-        }
-    
-        if ($this->request->getPost('alamat')) {
-            $data['alamat'] = $this->request->getPost('alamat');
-        }
-    
-        // Periksa apakah file diupload, jika ya, tambahkan ke data
-        $file = $this->request->getFile('file');
-        if ($file->isValid() && !$file->hasMoved()) {
-            $data['file'] = $file->getName();
+        if ($this->request->getPost('kode')) {
+            $data['kode'] = $this->request->getPost('kode');
         }
     
         // Update data jika ada setidaknya satu field yang diinputkan
@@ -145,7 +109,7 @@ class Pendaftaran extends ResourceController
         }
     
         // return view('datamaster/user', $this->namepage);
-        return redirect()->to(site_url('/user'))
+        return redirect()->to(site_url('/obat'))
         ->with('namepage', $this->namepage)
         ->with('success', "sukses");
 
