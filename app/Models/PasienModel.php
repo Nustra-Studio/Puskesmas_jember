@@ -45,8 +45,81 @@ class PasienModel extends Model
     protected $updatedField  = 'updated_at';
 
     // Validation
-    protected $validationRules      = [];
-    protected $validationMessages   = [];
+    protected $validationRules = [
+        'tanggal_daftar' => 'required|valid_date',
+        'ktp' => 'required|numeric',
+        'bpjs' => 'permit_empty|numeric',
+        'nama' => 'required',
+        'lahir' => 'required|valid_date',
+        'usia' => 'permit_empty|numeric',
+        'gender' => 'required',
+        'category' => 'required',
+        'payment' => 'required',
+        'alamat' => 'required',
+        'no_hp' => 'required|numeric',
+        'agama' => 'required',
+        'gol_darah' => 'required',
+        'pekerjaan' => 'required',
+        'pendidikan' => 'required',
+        'ayah' => 'permit_empty',
+        'ibu' => 'permit_empty',
+        'hubungi' => 'permit_empty',
+        'poli' => 'required',
+    ];
+   // Validation messages
+protected $validationMessages = [
+    'tanggal_daftar' => [
+        'required' => 'The tanggal daftar field is required.',
+        'valid_date' => 'The tanggal daftar field must be a valid date format.'
+    ],
+    'ktp' => [
+        'required' => 'The KTP field is required.',
+        'numeric' => 'The KTP field must be a number.'
+    ],
+    'bpjs' => [
+        'numeric' => 'The BPJS field must be a number.'
+    ],
+    'nama' => [
+        'required' => 'The Nama field is required.'
+    ],
+    'lahir' => [
+        'required' => 'The Lahir field is required.',
+    ],
+    'usia' => [
+        'numeric' => 'The Usia field must be a number.'
+    ],
+    'gender' => [
+        'required' => 'The Gender field is required.',
+    ],
+    'category' => [
+        'required' => 'The Category field is required.'
+    ],
+    'payment' => [
+        'required' => 'The Payment field is required.',
+    ],
+    'alamat' => [
+        'required' => 'The Alamat field is required.'
+    ],
+    'no_hp' => [
+        'required' => 'The No HP field is required.',
+    ],
+    'agama' => [
+        'required' => 'The Agama field is required.',
+    ],
+    'gol_darah' => [
+        'required' => 'The Gol Darah field is required.',
+    ],
+    'pekerjaan' => [
+        'required' => 'The Pekerjaan field is required.'
+    ],
+    'pendidikan' => [
+        'required' => 'The Pendidikan field is required.',
+    ],
+    'poli' => [
+        'required' => 'The Poli field is required.',
+    ],
+];
+
     protected $skipValidation       = false;
     protected $cleanValidationRules = true;
 

@@ -204,6 +204,11 @@
 		<?= $this->include('partials/right-sidebar') ?>
 
 		<?= $this->include('partials/vendor-scripts') ?>
+        <script>
+        <?php if (session()->has('errors')) : ?>
+            showErrorAlert(<?= json_encode(session('errors')) ?>);
+        <?php endif ?>
+        </script>
         <script src="assets/libs/datatables.net/js/jquery.dataTables.min.js"></script>
         <script src="assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
         <!-- Buttons examples -->

@@ -1,3 +1,8 @@
+<?php
+        use App\Models\PasienModel;
+        $model = new PasienModel();
+        $last = $model->last();
+    ?>
 <div class="modal fade bs-example-modal-lg  modal-dialog-scrollable" 
         tabindex="-1" role="dialog" 
         aria-labelledby="myLargeModalLabel" aria-hidden="true">
@@ -12,7 +17,7 @@
             <div class="row mx-4">
                             <div class="col-lg-12">
                                 <div class="mt-2">
-                                    <form action="<?=site_url('user')?>" method="post" enctype="multipart/form-data">
+                                    <form action="<?=site_url('pendaftaran')?>" method="post" enctype="multipart/form-data">
                                         <div class="row">
                                             <div class="col">
                                                     <div class="mb-3">
@@ -25,7 +30,7 @@
                                             <div class="col-md-6">
                                                     <div class="mb-3">
                                                         <label class="form-label" for="formrow-email-input">No RM</label>
-                                                        <input require type="text" name="username" class="form-control" id="formrow-email-input">
+                                                        <input require type="text" value="<?=$last ?>" name="username" class="form-control" id="formrow-email-input">
                                                     </div>
                                             </div>
                                             <div class="col-md-6">

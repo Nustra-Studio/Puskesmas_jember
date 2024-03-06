@@ -3,7 +3,7 @@
 namespace App\Controllers;
 
 use CodeIgniter\RESTful\ResourceController;
-use App\Models\UserModel;
+use App\Models\PasienModel;
 
 class Pendaftaran extends ResourceController
 {
@@ -15,7 +15,7 @@ class Pendaftaran extends ResourceController
     protected $model;
     function __construct()
     {
-        $this->model = new UserModel();
+        $this->model = new PasienModel();
         $this->namepage =[
 			'title_meta' => view('partials/title-meta', ['title' => 'Pendaftaran ']),
 			'page_title' => view('partials/page-title', ['title' => 'Pendaftaran'])
@@ -54,26 +54,15 @@ class Pendaftaran extends ResourceController
      */
     public function create()
     {
-        $data = [
-            'name' => $this->request->getPost('name'),
-            'tanggal_lahir' => $this->request->getPost('tanggal_lahir'),
-            'gender' => $this->request->getPost('gender'),
-            'jabatan' => $this->request->getPost('jabatan'),
-            'username' => $this->request->getPost('username'),
-            'password' => password_hash($this->request->getPost('password'), PASSWORD_DEFAULT), // Hash password sebelum disimpan ke database
-            'alamat' => $this->request->getPost('alamat'),
-            'foto' => $this->request->getFile('file')->getName(), // Contoh menyimpan nama file, sesuaikan dengan kebutuhan Anda
-        ];
-
-        // Upload file ke folder tertentu (opsional)
-        $file = $this->request->getFile('file');
-        $file->move(ROOTPATH . 'public/uploads');
-
-        $this->model->insert($data);
-
-        return view('datamaster/user', $this->namepage);
+        $model = $this->model;
+        if ($this->request->getMethod() === 'post' && $this->validate($model->validationRules)) {
+            $model->save($this->request->getPost());
+            return redirect()->to(site_url('user'))->with('success', 'Data saved successfully.');
+        } else {
+            // If validation fails, return to the form with errors
+            return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
+        }
     }
-
     /**
      * Return the editable properties of a resource object
      *

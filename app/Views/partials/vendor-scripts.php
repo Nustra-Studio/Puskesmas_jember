@@ -41,4 +41,18 @@ $(document).ready(function() {
         });
     });
 });
+function showErrorAlert(errors) {
+        let errorString = '<ul>';
+        for (let key in errors) {
+            errorString += '<li>' + errors[key] + '</li>';
+        }
+        errorString += '</ul>';
+
+        Swal.fire({
+            title: 'Validation Errors',
+            html: errorString,
+            icon: 'error'
+        });
+    }
+
 </script>
