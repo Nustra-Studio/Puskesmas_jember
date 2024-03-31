@@ -8,6 +8,7 @@
 <script src="<?=base_url('/assets/libs/jquery.counterup/jquery.counterup.min.js')?>"></script>
 <script src="<?=base_url('/assets/libs/sweetalert2/sweetalert2.min.js')?>"></script>
 <script src="<?=base_url('/assets/js/pages/sweet-alerts.init.js')?>"></script>
+<script src="<?=base_url('/assets/js/pages/select2.min.js')?>"></script>
 <script>
 $(document).ready(function() {
     $('.deleteBtn').click(function() {
@@ -54,5 +55,11 @@ function showErrorAlert(errors) {
             icon: 'error'
         });
     }
-
+    function showSuccessAlert(message) {
+        Swal.fire({
+            title: 'Success',
+            text: message,
+            icon: 'success'
+        });
+    }
 </script>

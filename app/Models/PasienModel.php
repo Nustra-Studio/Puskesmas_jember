@@ -39,7 +39,7 @@ class PasienModel extends Model
         'updated_at',
     ];
     // Dates
-    protected $useTimestamps = false;
+    protected $useTimestamps = true;
     protected $dateFormat    = 'datetime';
     protected $createdField  = 'created_at';
     protected $updatedField  = 'updated_at';
@@ -47,6 +47,7 @@ class PasienModel extends Model
     // Validation
     protected $validationRules = [
         'tanggal_daftar' => 'required|valid_date',
+        'id_rekammedis'=> 'required',
         'ktp' => 'required|numeric',
         'bpjs' => 'permit_empty|numeric',
         'nama' => 'required',
@@ -85,9 +86,9 @@ protected $validationMessages = [
     'lahir' => [
         'required' => 'The Lahir field is required.',
     ],
-    'usia' => [
-        'numeric' => 'The Usia field must be a number.'
-    ],
+    // 'usia' => [
+    //     'numeric' => 'The Usia field must be a number.'
+    // ],
     'gender' => [
         'required' => 'The Gender field is required.',
     ],

@@ -4,7 +4,7 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class Robat extends Migration
+class AlergiObat extends Migration
 {
     public function up()
     {
@@ -15,6 +15,14 @@ class Robat extends Migration
                 'unsigned' => true,
                 'auto_increment' => true,
             ],
+            'kode' => [
+                'type' => 'VARCHAR',
+                'constraint' => 255,
+            ],
+            'name' => [
+                'type' => 'VARCHAR',
+                'constraint' => 255,
+            ],
             'id_rm' => [
                 'type' => 'VARCHAR',
                 'constraint' => 255,
@@ -23,45 +31,13 @@ class Robat extends Migration
                 'type' => 'VARCHAR',
                 'constraint' => 255,
             ],
-            'obat' => [
-                'type' => 'VARCHAR',
-                'constraint' => 255,
-                'null' => true,
-            ],
-            'satuan' => [
-                'type' => 'VARCHAR',
-                'constraint' => 255,
-                'null' => true,
-            ],
-            'catatan' => [
-                'type' => 'VARCHAR',
-                'constraint' => 255,
-                'null' => true,
-            ],
-            'dosis' => [
-                'type' => 'VARCHAR',
-                'constraint' => 255,
-                'null' => true,
-            ],
-            'tarif' => [
-                'type' => 'VARCHAR',
-                'constraint' => 255,
-                'null' => true,
-            ],
-            'jumlah' => [
-                'type' => 'VARCHAR',
-                'constraint' => 255,
-                'null' => true,
-            ],
             'option' => [
                 'type' => 'VARCHAR',
                 'constraint' => 255,
-                'null' => true,
             ],
             'more' => [
                 'type' => 'VARCHAR',
                 'constraint' => 255,
-                'null' => true,
             ],
             'created_at' => [
                 'type' => 'DATETIME',
@@ -73,11 +49,11 @@ class Robat extends Migration
             ],
         ]);
         $this->forge->addKey('id', true);
-        $this->forge->createTable('Robat');
+        $this->forge->createTable('AlergiObat');
     }
 
     public function down()
     {
-        $this->forge->dropTable('Robat');
+        $this->forge->dropTable('AlergiObat');
     }
 }

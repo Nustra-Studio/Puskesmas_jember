@@ -48,6 +48,22 @@ $routes->get('/pasien/edit/(:num)', 'Masterdata::pasienedit/$1');
 $routes->add('/pasien/update/(:num)', 'Masterdata::pasienupdate/$1');
 $routes->get('/pasien/delete/(:num)', 'Masterdata::pasiendelete/$1');
 $routes->get('/login', 'PageController::show_auth_login');
+// rekam medis
+$routes->get('/rekammedis','RekamMedis::index');
+$routes->get('/cetakkartu','RekamMedis::CetakKartu');
+$routes->get('/rekam-pasien','RekamMedis::pasien');
+$routes->get('/rekam-diagnosis','RekamMedis::diagnosis');
+$routes->get('/rekam-anamnese','RekamMedis::anamnese');
+$routes->get('/rekam-tindakan','RekamMedis::tindakan');
+$routes->get('/rekam-obat','RekamMedis::obat');
+// core Rekam Medis
+$routes->post('/rekammedis/core/pasien','RekamMedis::Cpasien');
+$routes->post('/rekammedis/core/alergi','RekamMedis::alergi');
+$routes->post('/rekammedis/core/anamnese','RekamMedis::Canamnese');
+
+// delete routes
+$routes->post('/alergi/delete/(:num)', 'RekamMedis::DistoryAlergi/$1');
+
 
 
 	

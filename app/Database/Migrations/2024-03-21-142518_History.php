@@ -4,7 +4,7 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class Robat extends Migration
+class History extends Migration
 {
     public function up()
     {
@@ -19,36 +19,7 @@ class Robat extends Migration
                 'type' => 'VARCHAR',
                 'constraint' => 255,
             ],
-            'id_history' => [
-                'type' => 'VARCHAR',
-                'constraint' => 255,
-            ],
-            'obat' => [
-                'type' => 'VARCHAR',
-                'constraint' => 255,
-                'null' => true,
-            ],
-            'satuan' => [
-                'type' => 'VARCHAR',
-                'constraint' => 255,
-                'null' => true,
-            ],
-            'catatan' => [
-                'type' => 'VARCHAR',
-                'constraint' => 255,
-                'null' => true,
-            ],
-            'dosis' => [
-                'type' => 'VARCHAR',
-                'constraint' => 255,
-                'null' => true,
-            ],
-            'tarif' => [
-                'type' => 'VARCHAR',
-                'constraint' => 255,
-                'null' => true,
-            ],
-            'jumlah' => [
+            'status' => [
                 'type' => 'VARCHAR',
                 'constraint' => 255,
                 'null' => true,
@@ -73,11 +44,11 @@ class Robat extends Migration
             ],
         ]);
         $this->forge->addKey('id', true);
-        $this->forge->createTable('Robat');
+        $this->forge->createTable('History');
     }
 
     public function down()
     {
-        $this->forge->dropTable('Robat');
+        $this->forge->dropTable('History');
     }
 }

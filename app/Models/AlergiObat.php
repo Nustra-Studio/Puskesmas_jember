@@ -4,23 +4,24 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class DiagnosaModel extends Model
+class AlergiObat extends Model
 {
     protected $DBGroup          = 'default';
-    protected $table            = 'Diagnosa';
+    protected $table            = 'AlergiObat';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $insertID         = 0;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['name','kode','created_at','updated_at'];
+    protected $allowedFields    = ['kode','name','id_history','created_at','updated_at'];
 
     // Dates
     protected $useTimestamps = true;
     protected $dateFormat    = 'datetime';
     protected $createdField  = 'created_at';
     protected $updatedField  = 'updated_at';
+    protected $deletedField  = 'deleted_at';
 
     // Validation
     protected $validationRules      = [];

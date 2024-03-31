@@ -1,14 +1,15 @@
+
 <!-- ========== Left Sidebar Start ========== -->
 <div class="vertical-menu">
 
     <!-- LOGO -->
     <div class="navbar-brand-box">
-        <a href="/" class="logo logo-dark">
-            <span class="logo-sm">
-                <img src="<?php echo base_url('assets/images/logo-sm.png'); ?>" alt="" height="22">
+        <a href="/" class="logo logo-dark d-flex justify-content-center align-items-center">
+            <span class="logo-sm text-center">
+                <img src="<?php echo base_url('assets/images/logo.png'); ?>" alt="" height="60">
             </span>
-            <span class="logo-lg">
-                <img src="<?php echo base_url('assets/images/logo-dark.png'); ?>" alt="" height="20">
+            <span class="logo-lg text-center">
+                <img src="<?php echo base_url('assets/images/logo.png'); ?>" alt="" height="60">
             </span>
         </a>
 
@@ -74,23 +75,30 @@
                         <i class="uil-heart-medical"></i>
                         <span>Rekam Medis</span>
                     </a>
-                    <ul class="sub-menu" aria-expanded="true">
-                        <li>
-                            <a href="<?php echo base_url('rekam-pasien'); ?>">Data Pasien</a>
-                        </li>
-                        <li>
-                            <a href="<?php echo base_url('rekam-user'); ?>">Anamnese</a>
-                        </li>
-                        <li>
-                            <a href="<?php echo base_url('rekam-diagnosis'); ?>">Diagnosis</a>
-                        </li>
-                        <li>
-                            <a href="<?php echo base_url('rekam-tindakan'); ?>">Tindakan</a>
-                        </li>
-                        <li>
-                            <a href="<?php echo base_url('rekam-obat'); ?>">Obat</a>
-                        </li>
-                    </ul>
+                    <!-- rekam medis -->
+                    <?php
+                        $rekam_medis = $RekamMedis ?? "normal";
+                        $id = $id_perserta ?? null;
+                    ?>
+                    <?php if ($rekam_medis !== "normal"): ?>
+                        <ul class="sub-menu" aria-expanded="true">
+                            <li>
+                                <a href="<?= base_url("rekam-pasien?id=$id"); ?>">Data Pasien</a>
+                            </li>
+                            <li>
+                                <a href="<?= base_url("rekam-anamnese?id=$id"); ?>">Anamnese</a>
+                            </li>
+                            <li>
+                                <a href="<?= base_url("rekam-diagnosis?id=$id"); ?>">Diagnosis</a>
+                            </li>
+                            <li>
+                                <a href="<?= base_url("rekam-tindakan?id=$id"); ?>">Tindakan</a>
+                            </li>
+                            <li>
+                                <a href="<?= base_url("rekam-obat?id=$id"); ?>">Obat</a>
+                            </li>
+                        </ul>
+                    <?php endif; ?>
                 </li>
 
             </ul>
