@@ -13,7 +13,12 @@
 ?>
 <html lang="en">
     <head>
-        <?= $title_meta ?>
+    <meta charset="utf-8" />
+    <title> Laporan Kunjungan | NustraStudio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="/assets/images/favicon.ico">
 		<?= $this->include('partials/head-css') ?>
 
     </head>
@@ -34,7 +39,15 @@
                 <div class="page-content">
                     <div class="container-fluid">
 
-						<?= $page_title ?>
+					<div class="row">
+                        <div class="col-12">
+                            <div class="page-title-box d-flex align-items-center justify-content-between">
+                                <h4 class="mb-0">Laporan Kunjungan Pasien </h4>
+
+
+                            </div>
+                        </div>
+                    </div>
                         <div class="row">
                             <div class="col-xl-12">
                                 <div class="card">
@@ -67,117 +80,6 @@
                             </div> <!-- end col-->
                         </div> <!-- end row-->
 
-                        <div class="row">
-                            <div class="col-xl-5">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <!-- <div class="float-end">
-                                            <div class="dropdown">
-                                                <a class=" dropdown-toggle" href="#" id="dropdownMenuButton2"
-                                                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                    <span class="text-muted">All Members<i class="mdi mdi-chevron-down ms-1"></i></span>
-                                                </a>
-
-                                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton2">
-                                                    <a class="dropdown-item" href="#">Hari </a>
-                                                    <a class="dropdown-item" href="#">Bulan</a>
-                                                    <a class="dropdown-item" href="#">Tahun</a>
-                                                </div>
-                                            </div>
-                                        </div> -->
-                                        <h4 class="card-title mb-4">10 Besar Penyakit</h4>
-
-                                        <div data-simplebar style="max-height: 336px;">
-                                            <div class="table-responsive">
-                                                <table class="table table-borderless table-centered table-nowrap">
-                                                    <thead>
-                                                        <tr>
-                                                            <th>No</th>
-                                                            <th>Kode</th>
-                                                            <th>Penyakit</th>
-                                                            <th>jumlah</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                    <?php foreach($besar as $index => $item ): ?>
-                                                        <?php
-                                                            $unit = $diagnosa->where('name',$item->jenis_diagnosa)->first();
-                                                        ?>
-                                                        <tr>
-                                                            <td>  <?= $index+1 ?></td>
-                                                            <td><?=$unit['kode'] ?></td>
-                                                            <td>  <?= $item->jenis_diagnosa ?></td>
-                                                            <td><?= $item->total ?></td>
-                                                    </tr>
-                                                    <?php endforeach; ?>
-                                                    
-                                                    </tbody>
-                                                </table>
-                                            </div> <!-- enbd table-responsive-->
-                                        </div> <!-- data-sidebar-->
-                                    </div><!-- end card-body-->
-                                </div> <!-- end card-->
-                            </div><!-- end col -->
-                            <div class="col-xl-1"></div>
-                            <div class="col-xl-5">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h4 class="card-title mb-4">Kunjungan Rawat Jalan</h4>
-
-                                        <div data-simplebar style="max-height: 336px;">
-                                            <div class="table-responsive">
-                                                <table class="table table-borderless table-centered table-nowrap">
-                                                    <thead>
-                                                        <th>Bulan</th>
-                                                        <th>Jumlah</th>
-                                                        <th>Bulan</th>
-                                                        <th>Jumlah</th>
-                                                    </thead>
-                                                    <tbody class="text-center">
-                                                        <tr >
-                                                            <td>Januari</td>
-                                                            <td id="td-January"></td>
-                                                            <td>Juli</td>
-                                                            <td id="td-July"></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>Febuari</td>
-                                                            <td id="td-February"></td>
-                                                            <td>Agustus</td>
-                                                            <td id="td-August"></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>Maret</td>
-                                                            <td id="td-March"></td>
-                                                            <td>September</td>
-                                                            <td id="td-September"></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>April</td>
-                                                            <td id="td-April"></td>
-                                                            <td>Oktober</td>
-                                                            <td id="td-October"></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>Mei</td>
-                                                            <td id="td-May"></td>
-                                                            <td>November</td>
-                                                            <td id="td-November"></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>Juni</td>
-                                                            <td id="td-June"></td>
-                                                            <td>Desember</td>
-                                                            <td id="td-December"></td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                            </div> <!-- enbd table-responsive-->
-                                        </div> <!-- data-sidebar-->
-                                    </div><!-- end card-body-->
-                                </div> <!-- end card-->
-                            </div><!-- end col -->
-                        </div>
                         <!-- end row -->
 
                     </div> <!-- container-fluid -->
@@ -195,13 +97,12 @@
 		<?= $this->include('partials/right-sidebar') ?>
 
 		<?= $this->include('partials/vendor-scripts') ?>
-
         <!-- apexcharts -->
-        <script src="assets/libs/apexcharts/apexcharts.js"></script>
+        <script src=" <?php echo base_url('assets/libs/apexcharts/apexcharts.js'); ?>"></script>
 
         <!-- <script src="assets/js/pages/dashboard.init.js"></script> -->
-
-        <script src="assets/js/app.js"></script>
+<!-- 
+        <script src="<?php echo base_url('assets/js/app.js'); ?>"></script> -->
         <script>
             document.addEventListener("DOMContentLoaded", function() {
                 var dropdownMenu = document.querySelector('#data-menu');
@@ -251,7 +152,7 @@
                         var options = {
                             chart: {
                                 height: 339,
-                                type: 'line',
+                                type: 'bar',
                                 stacked: false,
                                 toolbar: {
                                     show: false
@@ -264,7 +165,7 @@
                             colors: ['#5b73e8'], // Warna biru untuk garis
                             series: [{
                                 name: 'Kunjungan', // Mengubah nama seri menjadi "Kunjungan"
-                                type: 'line',
+                                type: 'bar',
                                 data: visitCounts
                             }],
                             fill: {
@@ -351,7 +252,7 @@
                     }
                 });
             }
-            rawatjalan();
+
         </script>
     </body>
 

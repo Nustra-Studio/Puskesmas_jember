@@ -18,7 +18,7 @@
                                     <div class="row w-100">
                                         <div class="col">
                                             <label for="th">Tinggi Badan (cm)</label>
-
+                                            
                                             <input type="hidden" name="id_history" value="<?=$id_perserta ?>">
                                             <input type="hidden" name="status" value="create">
                                             <input type="text" name="tinggi"  id="th" class="form-control">

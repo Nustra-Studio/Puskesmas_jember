@@ -9,7 +9,7 @@
         $alergi = $alergi->findAll();
         $anamnese = new Anamnese;
         $id = $id_perserta ?? 0;
-        $data = $anamnese->where('id_history',$id)->get();
+        $data = $anamnese->where('id_history',$id)->findAll();
 
 ?>       
         <?php foreach($data as $item): ?>
@@ -22,14 +22,13 @@
                                     <div class="row w-100">
                                         <div class="col">
                                             <label for="th">Tinggi Badan (cm)</label>
-                                
                                             <input type="hidden" name="id_history" value="<?=$id_perserta ?>">
-                                            <input type="hidden" name="status" value="create">
-                                            <input type="text" name="tinggi"   id="th" class="form-control">
+                                            <input type="hidden" name="status" value="update">
+                                            <input type="text" name="tinggi" value="<?=$item->tinggi ?>"   id="th" class="form-control">
                                         </div>
                                         <div class="col">
                                             <label for="th">Massa Tubuh (Kg)</label>
-                                            <input type="text" name="berat" id="th" class="form-control">
+                                            <input type="text" name="berat"  value="<?=$item->berat ?>" id="th" class="form-control">
                                         </div>
                                     </div>
                                 </div>
@@ -38,61 +37,61 @@
                         <div class="row">
                             <div class="mb-3">
                                 <label for="Gizi">Status Gizi</label>
-                                <input type="text" name="gizi" id="gizi" class="form-control">
+                                <input type="text" name="gizi" id="gizi"  value="<?=$item->gizi ?>" class="form-control">
                             </div>
                         </div>
                         <div class="row">
                             <div class="mb-3">
                                 <label for="Sistole">Sistole</label>
-                                <input type="text" name="sistole" id="Sistole" class="form-control">
+                                <input type="text" name="sistole" id="Sistole"  value="<?=$item->sistole ?>" class="form-control">
                             </div>
                         </div>
                         <div class="row">
                             <div class="mb-3">
                                 <label for="Diastole">Diastole</label>
-                                <input type="text" name="diastole" id="Diastole" class="form-control">
+                                <input type="text" name="diastole" id="Diastole"  value="<?=$item->diastole ?>" class="form-control">
                             </div>
                         </div>
                         <div class="row">
                             <div class="mb-3">
                                 <label for="Nadi">Denyut Nadi</label>
-                                <input type="text" name="denyut_nadi" id="Nadi" class="form-control">
+                                <input type="text" name="denyut_nadi" id="Nadi"  value="<?=$item->denyut_nadi ?>" class="form-control">
                             </div>
                         </div>
                         <div class="row">
                             <div class="mb-3">
                                 <label for="Rate">Respirate Rate</label>
-                                <input type="text" name="respirate_rate" id="Rate" class="form-control">
+                                <input type="text" name="respirate_rate" id="Rate"  value="<?=$item->respirate_rate ?>" class="form-control">
                             </div>
                         </div>
                         <div class="row">
                             <div class="mb-3">
                                 <label for="Ket">Ket</label>
-                                <input type="text" name="ket" id="Ket" class="form-control">
+                                <input type="text" name="ket" id="Ket"  value="<?=$item->ket ?>" class="form-control">
                             </div>
                         </div>
                         <div class="row">
                             <div class="mb-3">
                                 <label for="THX">THX</label>
-                                <input type="text" name="thx" id="THX" class="form-control">
+                                <input type="text" name="thx" id="THX"  value="<?=$item->thx ?>" class="form-control">
                             </div>
                         </div>
                         <div class="row">
                             <div class="mb-3">
                                 <label for="ABD">ABD</label>
-                                <input type="text" name="abd" id="ABD" class="form-control">
+                                <input type="text" name="abd" id="ABD"  value="<?=$item->abd ?>" class="form-control">
                             </div>
                         </div>
                         <div class="row">
                             <div class="mb-3">
                                 <label for="EXT">EXT</label>
-                                <input type="text" name="ext" id="EXT" class="form-control">
+                                <input type="text" name="ext" id="EXT"  value="<?=$item->ext ?>" class="form-control">
                             </div>
                         </div>
                         <div class="row">
                             <div class="mb-3">
                                 <label for="HE">HE</label>
-                                <input type="text" name="he" id="HE" class="form-control">
+                                <input type="text" name="he" id="HE"  value="<?=$item->he ?>" class="form-control">
                             </div>
                         </div>
                     </div>
@@ -160,16 +159,16 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <?php foreach($alergi as $index => $item): ?>
+                                            <?php foreach($alergi as $index => $unit): ?>
                                             <tr>
                                                 <td class="text-center"><?=$index +1 ?></td>
-                                                    <td class="text-center"><?=$item['kode']?></td>
-                                                    <td class="text-center"><?=$item['name'] ?></td>
+                                                    <td class="text-center"><?=$unit['kode']?></td>
+                                                    <td class="text-center"><?=$unit['name'] ?></td>
                                                     <td class="text-center">
                                                         <button
                                                                 id="deleteBtn" 
-                                                                data-id="<?=$item['id'] ?>" 
-                                                                data-name="<?=$item['name'] ?>"
+                                                                data-id="<?=$unit['id'] ?>" 
+                                                                data-name="<?=$unit['name'] ?>"
                                                                 data-url="alergi"
                                                                 type="button" 
                                                                 class="deleteBtn btn btn-danger waves-effect waves-light">
@@ -187,7 +186,7 @@
                             <div class="mb-3">
                                 <div class="col">
                                     Anamnese <br>
-                                    <textarea name="anamnese" id="" cols="20" rows="5" style="width: 100%;" class="form-control"></textarea>
+                                    <textarea name="anamnese" id=""   cols="20" rows="5" style="width: 100%;" class="form-control"><?=$item->anamnese ?></textarea>
                                 </div>
                             </div>
                         </div>

@@ -55,4 +55,28 @@ class HistoryModel extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+    public function week()
+    {
+        $today = date('Y-m-d');
+        $sevenDaysAgo = date('Y-m-d', strtotime('-7 days', strtotime($today)));
+
+        $builder = $this->db->table($this->table);
+        $builder->where('created_at >=', $sevenDaysAgo);
+        $builder->where('created_at <=', $today);
+
+        return $builder->get()->getResult();
+    }
+
+
+    public function month()
+    {
+        $today = date('Y-m-d');
+        $oneYearAgo = date('Y-m-d', strtotime('-1 year', strtotime($today)));
+
+        $builder = $this->db->table($this->table);
+        $builder->where('created_at >=', $oneYearAgo);
+        $builder->where('created_at <=', $today);
+        return $builder->get()->getResult();
+    }
+
 }

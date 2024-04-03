@@ -40,6 +40,7 @@ $routes->resource('user');
 $routes->resource('diagnosis');
 $routes->resource('tindakan');
 $routes->resource('obat');
+$routes->resource('kasus');
 $routes->resource('pendaftaran');
 	// Pasien
 $routes->get('/pasien', 'Masterdata::pasien');
@@ -60,10 +61,20 @@ $routes->get('/rekam-obat','RekamMedis::obat');
 $routes->post('/rekammedis/core/pasien','RekamMedis::Cpasien');
 $routes->post('/rekammedis/core/alergi','RekamMedis::alergi');
 $routes->post('/rekammedis/core/anamnese','RekamMedis::Canamnese');
+$routes->post('/rekammedis/core/diagnosa','RekamMedis::Cdiagnosa');
+$routes->post('/rekammedis/core/tindakan','RekamMedis::Ctindakan');
+$routes->post('/rekammedis/core/obat','RekamMedis::Cobat');
 
 // delete routes
 $routes->post('/alergi/delete/(:num)', 'RekamMedis::DistoryAlergi/$1');
-
+$routes->post('/Rdiagnosa/delete/(:num)', 'RekamMedis::DistoryDiagnosa/$1');
+$routes->post('/Rtindakan/delete/(:num)', 'RekamMedis::DistoryTindakan/$1');
+$routes->post('/Robat/delete/(:num)', 'RekamMedis::DistoryObat/$1');
+// rest data
+$routes->get('/data/kunjungan', 'Dashboard::kunjungan');
+// laporan
+$routes->get('/laporan/kunjungan', 'Dashboard::LaporanKunjungan');
+$routes->get('/laporan/penyakit', 'Dashboard::penyakit');
 
 
 	

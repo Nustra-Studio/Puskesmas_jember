@@ -8,6 +8,9 @@ use App\Models\HistoryModel;
 use App\Models\ObatModel;
 use App\Models\AlergiObat;
 use App\Models\Anamnese;
+use App\Models\RekamDiagnosa;
+use App\Models\RekamTindakan;
+use App\Models\RekamObat;
 
 class RekamMedis extends BaseController
 {
@@ -20,6 +23,9 @@ class RekamMedis extends BaseController
         $this->obat = new ObatModel();
         $this->alergi = new AlergiObat();
         $this->anamnese = new Anamnese();
+        $this->diagnosa = new RekamDiagnosa();
+        $this->Rtindakan = new RekamTindakan();
+        $this->Robat = new RekamObat();
         $this->namepage =[
 			'title_meta' => view('partials/title-meta', ['title' => 'Rekam_medis ']),
 			'page_title' => view('partials/page-title', ['title' => 'Rekam Medis']),
@@ -35,7 +41,7 @@ class RekamMedis extends BaseController
             return redirect()->back();
         }
         $this->namepage['id_perserta'] = $id;
-        return view('rekammedis/Pendaftaran', $this->namepage);
+        return view('rekammedis/Pasien', $this->namepage);
     }
     public function CetakKartu(){
         $id = $this->request->getGet('id');
@@ -146,14 +152,77 @@ class RekamMedis extends BaseController
             $this->alergi->delete($id);
             return $this->response->setStatusCode(200)->setBody('Record deleted successfully');
         }
+        public function DistoryDiagnosa($id){
+            $data = $this->diagnosa->find($id);
+            if (!$data) {
+                return $this->response->setStatusCode(404)->setBody('Record not found');
+            }
+            $this->diagnosa->delete($id);
+            return $this->response->setStatusCode(200)->setBody('Record deleted successfully');
+        }
         public function Canamnese(){
             $model = $this->anamnese;
+            $check = $model->where('id_history',$this->request->getPost('id_history'))->first();
+            if ($this->request->getMethod() === 'post' && $this->validate($model->validationRules)) {
+                if($this->request->getPost('status') == "create" ){
+                    $model->insert($this->request->getPost());
+                }
+                else{
+                    $model->update($check->id,$this->request->getPost());
+                }
+            return redirect()->back()->withInput()->with('success', 'Data saved successfully.');
+            } else {
+                // If validation fails, return to the form with errors
+                return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
+            }
+        }
+        public function Cdiagnosa(){
+            $model = $this->diagnosa;
             if ($this->request->getMethod() === 'post' && $this->validate($model->validationRules)) {
                 $model->insert($this->request->getPost());
+            
             return redirect()->back()->withInput()->with('success', 'Data saved successfully.');
         } else {
             // If validation fails, return to the form with errors
             return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
         }
+        }
+        public function Ctindakan(){
+            $model = $this->Rtindakan;
+            if ($this->request->getMethod() === 'post' && $this->validate($model->validationRules)) {
+                $model->insert($this->request->getPost());
+            
+            return redirect()->back()->withInput()->with('success', 'Data saved successfully.');
+        } else {
+            // If validation fails, return to the form with errors
+            return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
+        }
+        }
+        public function DistoryTindakan($id){
+            $data = $this->Rtindakan->find($id);
+            if (!$data) {
+                return $this->response->setStatusCode(404)->setBody('Record not found');
+            }
+            $this->Rtindakan->delete($id);
+            return $this->response->setStatusCode(200)->setBody('Record deleted successfully');
+        }
+        public function Cobat(){
+            $model = $this->Robat;
+            if ($this->request->getMethod() === 'post' && $this->validate($model->validationRules)) {
+                $model->insert($this->request->getPost());
+            
+            return redirect()->back()->withInput()->with('success', 'Data saved successfully.');
+        } else {
+            // If validation fails, return to the form with errors
+            return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
+        }
+        }
+        public function DistoryObat($id){
+            $data = $this->Robat->find($id);
+            if (!$data) {
+                return $this->response->setStatusCode(404)->setBody('Record not found');
+            }
+            $this->Robat->delete($id);
+            return $this->response->setStatusCode(200)->setBody('Record deleted successfully');
         }
 }   

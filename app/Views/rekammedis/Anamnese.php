@@ -43,14 +43,13 @@
                         $data = new Anamnese;
                         $data = $data->where('id_history',$id_perserta)->first();
                     ?>
-                    <?=
-                    if(!empty($data)){
-                        $this->include('rekammedis/addon/anamnese/update');
-                    }
-                    else{
-                        $this->include('rekammedis/addon/anamnese/create');
-                    };
-                    ?>
+                    <?php
+                    if(!empty($data)){?>
+                        <?= $this->include('rekammedis/addon/anamnese/update'); ?>
+                    
+                    <?php  }else{ ?>
+                        <?= $this->include('rekammedis/addon/anamnese/create'); ?>
+                    <?php } ?>
                 </div>
             </div>
         </div>

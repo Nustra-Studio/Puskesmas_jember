@@ -62,6 +62,9 @@
                         <li>
                             <a href="<?php echo base_url('obat'); ?>">Data Obat</a>
                         </li>
+                        <li>
+                            <a href="<?php echo base_url('kasus'); ?>">Data kasus</a>
+                        </li>
                     </ul>
                 </li>
                 <li>
@@ -100,7 +103,21 @@
                         </ul>
                     <?php endif; ?>
                 </li>
+                <li>
+                    <a href="javascript: void(1);" class="has-arrow waves-effect">
+                        <i class="uil-arrow-growth"></i>
+                        <span>Laporan</span>
+                    </a>
 
+                        <ul class="sub-menu" aria-expanded="true">
+                            <li>
+                                <a href="<?= base_url("/laporan/kunjungan"); ?>">Kunjungan</a>
+                            </li>
+                            <li>
+                                <a href="<?= base_url("laporan/penyakit"); ?>">10 Besar Penyakit</a>
+                            </li>
+                        </ul>
+                </li>
             </ul>
         </div>
         <!-- Sidebar -->
