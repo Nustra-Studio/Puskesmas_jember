@@ -73,9 +73,6 @@
                                                     <td><?=$item['usia'] ?></td>
                                                     <td><?=$item['alamat'] ?></td>
                                                     <td> 
-                                                        <button type="button" class="btn btn-primary waves-effect waves-light" id="">
-                                                            <i class="uil uil-pen"></i>
-                                                        </button>
                                                         <button type="button" class="btn btn-danger waves-effect waves-light" id="sa-warning">
                                                             <i class="uil uil-trash-alt"></i>
                                                         </button>
@@ -147,21 +144,6 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="d-flex flex-wrap gap-3 mt-3">
-                                                                <!-- <button
-                                                                    data-bs-toggle="modal" 
-                                                                    data-bs-target=".bs-<?=$item['id'] ?>-edit-modal-lg" 
-                                                                    type="button" class="btn btn-primary waves-effect waves-light" id="">
-                                                                        <i class="uil uil-pen"></i>
-                                                                </button>
-                                                                    <button
-                                                                    id="deleteBtn" 
-                                                                    data-id="<?= $item['id'] ?>" 
-                                                                    data-name="<?= $item['name'] ?>"
-                                                                    data-url="user"
-                                                                    type="button" 
-                                                                    class="deleteBtn btn btn-danger waves-effect waves-light">
-                                                                        <i class="uil uil-trash-alt"></i>
-                                                                </button>         -->
                                                             </div>
                                                             </form>
                                                         </div>
