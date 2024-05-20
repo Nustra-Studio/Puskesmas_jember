@@ -31,6 +31,9 @@
 
         <!--- Sidemenu -->
         <div id="sidebar-menu">
+        <?php
+            $jabatan = session()->get('jabatan');
+        ?>
             <!-- Left Menu Start -->
             <ul class="metismenu list-unstyled" id="side-menu">
 
@@ -40,39 +43,44 @@
                         <span><?= lang('Files.Dashboard') ?></span>
                     </a>
                 </li>
-
-                <li>
-                    <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="uil-database"></i>
-                        <span>MasterData</span>
-                    </a>
-                    <ul class="sub-menu" aria-expanded="true">
-                        <li>
-                            <a href="<?php echo base_url('pasien'); ?>">Data Pasien</a>
-                        </li>
-                        <li>
-                            <a href="<?php echo base_url('user'); ?>">Data User</a>
-                        </li>
-                        <li>
-                            <a href="<?php echo base_url('diagnosis'); ?>">Data Diagnosis</a>
-                        </li>
-                        <li>
-                            <a href="<?php echo base_url('tindakan'); ?>">Data Tindakan</a>
-                        </li>
-                        <li>
-                            <a href="<?php echo base_url('obat'); ?>">Data Obat</a>
-                        </li>
-                        <li>
-                            <a href="<?php echo base_url('kasus'); ?>">Data kasus</a>
-                        </li>
-                    </ul>
-                </li>
+                <?php if($jabatan == "admin"): ?>
+                    <li>
+                    
+                        <a href="javascript: void(0);" class="has-arrow waves-effect">
+                            <i class="uil-database"></i>
+                            <span>MasterData</span>
+                        </a>
+                        <ul class="sub-menu" aria-expanded="true">
+                            <li>
+                                <a href="<?php echo base_url('pasien'); ?>">Data Pasien</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url('user'); ?>">Data User</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url('diagnosis'); ?>">Data Diagnosis</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url('tindakan'); ?>">Data Tindakan</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url('obat'); ?>">Data Obat</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url('kasus'); ?>">Data kasus</a>
+                            </li>
+                        </ul>
+                    </li>
+                <?php endif; ?>
+                <?php if($jabatan == "admin"||$jabatan == "pendaftran"): ?>
                 <li>
                     <a href="<?php echo base_url('pendaftaran'); ?>">
                         <i class="uil-clipboard-notes"></i>
                         <span>Pendaftaran</span>
                     </a>
                 </li>
+                <?php endif; ?>
+                <?php if($jabatan == "admin"||$jabatan == "rekammedis"||$jabatan == "dokter" ): ?>
                 <li>
                     <a href="javascript: void(1);" class="has-arrow waves-effect">
                         <i class="uil-heart-medical"></i>
@@ -103,6 +111,7 @@
                         </ul>
                     <?php endif; ?>
                 </li>
+                <?php endif; ?>
                 <li>
                     <a href="javascript: void(1);" class="has-arrow waves-effect">
                         <i class="uil-arrow-growth"></i>

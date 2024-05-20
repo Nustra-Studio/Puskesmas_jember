@@ -40,7 +40,13 @@
                                     </div>
                                     <div class="mb-3">
                                                     <label class="form-label" for="formrow-email-input">Jabatan</label>
-                                                    <input require type="text" name="jabatan" class="form-control" id="formrow-email-input">
+                                                    <select id="formrow-password-input" name="jabatan" class="form-select" >
+                                                            <option value="admin">Admin</option>
+                                                            <option value="pendaftran">Petugas Pendaftaran</option>
+                                                            <option value="rekammedis">Petugas RekamMedis</option>
+                                                            <option value="dokter">Dokter</option>
+
+                                                    </select>
                                                 </div>
                                     <div class="row">
                                         <div class="col-md-6">

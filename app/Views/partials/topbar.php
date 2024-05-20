@@ -35,16 +35,17 @@
                     data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <img class="rounded-circle header-profile-user" src="<?php echo base_url('assets/images/users/avatar-4.jpg'); ?>"
                         alt="Header Avatar">
-                    <span class="d-none d-xl-inline-block ms-1 fw-medium font-size-15">Marcus</span>
+                        <?php
+                            $name = session()->get('name');
+                        ?>
+                    <span class="d-none d-xl-inline-block ms-1 fw-medium font-size-15"><?= $name ?></span>
                     <i class="uil-angle-down d-none d-xl-inline-block font-size-15"></i>
                 </button>
                 <div class="dropdown-menu dropdown-menu-end">
                     <!-- item-->
-                    <a class="dropdown-item" href="<?php echo base_url('login'); ?>"><i class="uil uil-sign-out-alt font-size-18 align-middle me-1 text-muted"></i> <span class="align-middle"><?= lang('Files.Sign out') ?></span></a>
+                    <a class="dropdown-item" href="<?php echo base_url('/auth/logout'); ?>"><i class="uil uil-sign-out-alt font-size-18 align-middle me-1 text-muted"></i> <span class="align-middle"><?= lang('Files.Sign out') ?></span></a>
                 </div>
             </div>
-
-            
         </div>
     </div>
 </header>

@@ -49,6 +49,8 @@ $routes->get('/pasien/edit/(:num)', 'Masterdata::pasienedit/$1');
 $routes->add('/pasien/update/(:num)', 'Masterdata::pasienupdate/$1');
 $routes->get('/pasien/delete/(:num)', 'Masterdata::pasiendelete/$1');
 $routes->get('/login', 'PageController::show_auth_login');
+$routes->post('/auth/login', 'User::login');
+$routes->get('/auth/logout', 'User::logout');
 // rekam medis
 $routes->get('/rekammedis','RekamMedis::index');
 $routes->get('/cetakkartu','RekamMedis::CetakKartu');

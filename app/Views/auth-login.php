@@ -31,18 +31,21 @@
                             <div class="text-center mt-2">
                                 <h5 class="text-primary">Welcome Back !</h5>
                                 <p class="text-muted">Sign in to continue to Rekammedis</p>
+                                <?php if (session()->getFlashdata('msg')): ?>
+                                    <div><?php echo session()->getFlashdata('msg'); ?></div>
+                                <?php endif; ?>
                             </div>
                             <div class="p-2 mt-4">
-                                <form action="/">
+                            <form action="<?=site_url('auth/login')?>" method="post">
 
                                     <div class="mb-3">
                                         <label class="form-label" for="username">Username</label>
-                                        <input type="text" class="form-control" id="username" placeholder="Enter username">
+                                        <input type="text" class="form-control" name="username" id="username" placeholder="Enter username">
                                     </div>
 
                                     <div class="mb-3">
                                         <label class="form-label" for="userpassword">Password</label>
-                                        <input type="password" class="form-control" id="userpassword" placeholder="Enter password">
+                                        <input type="password" class="form-control" name="password" id="userpassword" placeholder="Enter password">
                                     </div>
 
                                     <div class="mt-3 text-end">

@@ -73,7 +73,39 @@ class User extends ResourceController
 
         return view('datamaster/user', $this->namepage);
     }
-
+    public function login()
+    {
+        $session = session();
+        $model = $this->model;
+        $username = $this->request->getPost('username');
+        $password = $this->request->getPost('password'); // Get the plain password
+    
+        $user = $model->where('username', $username)->first();
+        if ($user) {
+            if (password_verify($password, $user['password'])) { // Verify plain password against hashed password
+                $sessionData = [
+                    'id' => $user['id'],
+                    'name' => $user['name'],
+                    'jabatan' => $user['jabatan'],
+                    'isLoggedIn' => TRUE
+                ];
+                $session->set($sessionData);
+                return redirect()->to('/');
+            } else {
+                $session->setFlashdata('msg', 'Password is incorrect.');
+                return redirect()->to('/login');
+            }
+        } else {
+            $session->setFlashdata('msg', 'Username does not exist.');
+            return redirect()->to('/login');
+        }
+    }
+    public function logout()
+    {
+        $session = session();
+        $session->destroy();
+        return redirect()->to('/login');
+    }
     /**
      * Return the editable properties of a resource object
      *
