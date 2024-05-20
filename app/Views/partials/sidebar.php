@@ -66,9 +66,9 @@
                             <li>
                                 <a href="<?php echo base_url('obat'); ?>">Data Obat</a>
                             </li>
-                            <li>
+                            <!-- <li>
                                 <a href="<?php echo base_url('kasus'); ?>">Data kasus</a>
-                            </li>
+                            </li> -->
                         </ul>
                     </li>
                 <?php endif; ?>
@@ -77,6 +77,14 @@
                     <a href="<?php echo base_url('pendaftaran'); ?>">
                         <i class="uil-clipboard-notes"></i>
                         <span>Pendaftaran</span>
+                    </a>
+                </li>
+                <?php endif; ?>
+                <?php if($jabatan == "rekammedis"): ?>
+                <li>
+                    <a href="<?php echo base_url('data-rekammedis'); ?>">
+                        <i class="uil-clipboard-notes"></i>
+                        <span>Data Pendaftar </span>
                     </a>
                 </li>
                 <?php endif; ?>

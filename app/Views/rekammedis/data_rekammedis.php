@@ -6,19 +6,6 @@
         use App\Models\HistoryModel;
         $model = new HistoryModel();
         $data = $model->JoinAll();
-        function hitungUsia($tanggalLahir) {
-            // Mengubah tanggal lahir menjadi objek DateTime
-            $lahir = new DateTime($tanggalLahir);
-            $hariIni = new DateTime();
-            
-            // Menghitung selisih antara tanggal lahir dan tanggal hari ini
-            $selisih = $hariIni->diff($lahir);
-        
-            // Menghasilkan string format tahun, bulan, dan hari
-            $usia = $selisih->y . ' tahun ' . $selisih->m . ' bulan ' . $selisih->d . ' hari';
-            
-            return $usia;
-        }
     ?>
     <?= $title_meta ?>
 
@@ -52,12 +39,6 @@
                 <?= $page_title ?>
 
             <div class="row">
-                <div class="col-12 text-end my-2 me-3"> 
-                    <button type="button" 
-                    class="btn w-lg btn-success waves-effect waves-light" 
-                    data-bs-toggle="modal" 
-                    data-bs-target=".bs-example-modal-lg">Tambah <i class="uil uil-plus ms-2"></i> </button>
-                </div>
                 <div class="col-12">
                     <div class="card">
                         <div class="card-body">
@@ -86,7 +67,7 @@
                                             <td class="text-center"><?= $item->poli  ?></td>
                                             <td class="text-center"><?= $item->id_rekammedis  ?></td>
                                             <td class="text-center"><?= $item->nama  ?></td>
-                                            <td class="text-center"><?= hitungUsia($item->lahir) ?></td>
+                                            <td class="text-center"><?= $item->usia  ?></td>
                                             <td class="text-center"><?= $item->alamat  ?></td>
                                             <td class="text-center"><?= $item->category  ?></td>
                                             <?php
@@ -98,6 +79,11 @@
                                                 href="<?= base_url("cetakkartu?id=$id"); ?>" 
                                                     class="btn btn-success waves-effect waves-light" id="">
                                                     <i class="uil uil-print"></i>
+                                                </a>
+                                                <a
+                                                href="<?= base_url("rekammedis?id=$ids"); ?>" 
+                                                    class="btn btn-primary waves-effect waves-light" id="">
+                                                    <i class="uil uil-pen"></i>
                                                 </a>
                                                 <button
                                                 id="deleteBtn" 

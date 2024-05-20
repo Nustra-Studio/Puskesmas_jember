@@ -32,25 +32,26 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 // $routes->get('login', 'User::login');
 $routes->post('auth/login', 'User::login');
-$routes->get('logout', 'User::logout');
+$routes->get('auth/logout', 'User::logout');
+$routes->get('/login', 'PageController::show_auth_login');
 $routes->get('/template', 'Home::index');
-$routes->get('/','Dashboard::index');
 $routes->get('/lang/{locale}', 'Language::index');
+$routes->group('', ['filter' => 'auth'], function($routes) {
+$routes->get('/','Dashboard::index');
 $routes->resource('user');
 $routes->resource('diagnosis');
 $routes->resource('tindakan');
 $routes->resource('obat');
 $routes->resource('kasus');
 $routes->resource('pendaftaran');
+$routes->get('/data-rekammedis','Pendaftaran::data');
 	// Pasien
 $routes->get('/pasien', 'Masterdata::pasien');
 $routes->add('/pasien/create', 'Masterdata::pasienstore');
 $routes->get('/pasien/edit/(:num)', 'Masterdata::pasienedit/$1');
 $routes->add('/pasien/update/(:num)', 'Masterdata::pasienupdate/$1');
 $routes->get('/pasien/delete/(:num)', 'Masterdata::pasiendelete/$1');
-$routes->get('/login', 'PageController::show_auth_login');
-$routes->post('/auth/login', 'User::login');
-$routes->get('/auth/logout', 'User::logout');
+
 // rekam medis
 $routes->get('/rekammedis','RekamMedis::index');
 $routes->get('/cetakkartu','RekamMedis::CetakKartu');
@@ -77,7 +78,7 @@ $routes->get('/data/kunjungan', 'Dashboard::kunjungan');
 // laporan
 $routes->get('/laporan/kunjungan', 'Dashboard::LaporanKunjungan');
 $routes->get('/laporan/penyakit', 'Dashboard::penyakit');
-
+});
 
 	
 /**

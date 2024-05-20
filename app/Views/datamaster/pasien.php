@@ -7,6 +7,19 @@
         $model = new PasienModel();
         $data = $model->findAll();
         $last = $model->last();
+        function hitungUsia($tanggalLahir) {
+            // Mengubah tanggal lahir menjadi objek DateTime
+            $lahir = new DateTime($tanggalLahir);
+            $hariIni = new DateTime();
+            
+            // Menghitung selisih antara tanggal lahir dan tanggal hari ini
+            $selisih = $hariIni->diff($lahir);
+        
+            // Menghasilkan string format tahun, bulan, dan hari
+            $usia = $selisih->y . ' tahun ' . $selisih->m . ' bulan ' . $selisih->d . ' hari';
+            
+            return $usia;
+        }
     ?>
     <?= $title_meta ?>
 
@@ -70,7 +83,7 @@
                                                     <td><?=$item['id_rekammedis'] ?></td>
                                                     <td><?=$item['category'] ?></td>
                                                     <td><?=$item['nama'] ?></td>
-                                                    <td><?=$item['usia'] ?></td>
+                                                    <td><?= hitungUsia($item['lahir']) ?></td>
                                                     <td><?=$item['alamat'] ?></td>
                                                     <td> 
                                                         <button type="button" class="btn btn-danger waves-effect waves-light" id="sa-warning">

@@ -28,6 +28,9 @@ class Pendaftaran extends ResourceController
 
 		return view('rekammedis/Pendaftaran', $this->namepage);
     }
+    public function data(){
+        return view('rekammedis/data_rekammedis', $this->namepage);
+    }
 
     /**
      * Return the properties of a resource object

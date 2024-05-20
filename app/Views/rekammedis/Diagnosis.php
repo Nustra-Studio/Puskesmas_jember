@@ -66,11 +66,7 @@
                                 <div class="row">
                                     <div class="mb-3">
                                         <label for="kasus">Jenis Kasus</label>
-                                        <select id="jenis_kasus" name="jenis_kasus" class="form-select search">
-                                                <?php foreach($kasus as $unit): ?>
-                                                    <option value="<?=$unit['name'] ?>"><?=$unit['name']?>/<?=$unit['kode']?></option>
-                                                <?php endforeach; ?>
-                                        </select>
+                                        <input type="text" name="jenis_kasus" class="form-control" id="kasus">
                                     </div>
                                 </div>
                                 <div class="row">
