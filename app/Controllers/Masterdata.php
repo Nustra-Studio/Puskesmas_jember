@@ -1,5 +1,5 @@
 <?php namespace App\Controllers;
-
+	use App\Models\PasienModel;
 class Masterdata extends BaseController
 {
     // -------------------------------------------------Pasien------------------------------------------
@@ -47,6 +47,24 @@ class Masterdata extends BaseController
 	{
 		// Add functionality here
 	}
+	public function DataPasien()
+{
+    $model = new PasienModel();
+    $request = $this->request->getGet('id_rm');
+    
+    if (!empty($request)) {
+        $data = $model->where('id_rekammedis', $request)->first();
+        
+        if ($data) {
+            return $this->response->setJSON($data);
+        } else {
+            return $this->response->setJSON(['message' => 'Not Found'])->setStatusCode(404);
+        }
+    } else {
+        return $this->response->setJSON(['message' => 'Not Found'])->setStatusCode(404);
+    }
+}
+
 	// ----------------------------------------------------user End------------------------------------------
     
 }

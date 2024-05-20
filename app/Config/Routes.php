@@ -75,6 +75,7 @@ $routes->post('/Rtindakan/delete/(:num)', 'RekamMedis::DistoryTindakan/$1');
 $routes->post('/Robat/delete/(:num)', 'RekamMedis::DistoryObat/$1');
 // rest data
 $routes->get('/data/kunjungan', 'Dashboard::kunjungan');
+$routes->get('/data/pasien', 'Masterdata::DataPasien');
 // laporan
 $routes->get('/laporan/kunjungan', 'Dashboard::LaporanKunjungan');
 $routes->get('/laporan/penyakit', 'Dashboard::penyakit');
