@@ -80,7 +80,7 @@
                     </a>
                 </li>
                 <?php endif; ?>
-                <?php if($jabatan == "rekammedis"): ?>
+                <?php if($jabatan == "rekammedis"||$jabatan == 'dokter' || $jabatan="admin"): ?>
                 <li>
                     <a href="<?php echo base_url('data-rekammedis'); ?>">
                         <i class="uil-clipboard-notes"></i>

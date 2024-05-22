@@ -52,6 +52,15 @@ class RekamMedis extends BaseController
         }
         $this->namepage['data'] = $data;
         return view('rekammedis/kartu', $this->namepage);
+    }    public function CetakRekammedis(){
+        $id = $this->request->getGet('id');
+        $id = $id ?? 1;
+        $data =$this->model->find($id);
+        if(empty($data)){
+            return redirect()->back();
+        }
+        $this->namepage['data'] = $data;
+        return view('rekammedis/kartu_rekammedis', $this->namepage);
     }
 
 // return view

@@ -76,7 +76,7 @@
                                             ?>
                                             <td> 
                                                 <a
-                                                href="<?= base_url("cetakkartu?id=$id"); ?>" 
+                                                href="<?= base_url("cetakRM?id=$id"); ?>" 
                                                     class="btn btn-success waves-effect waves-light" id="">
                                                     <i class="uil uil-print"></i>
                                                 </a>

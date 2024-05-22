@@ -54,7 +54,8 @@ $routes->get('/pasien/delete/(:num)', 'Masterdata::pasiendelete/$1');
 
 // rekam medis
 $routes->get('/rekammedis','RekamMedis::index');
-$routes->get('/cetakkartu','RekamMedis::CetakKartu');
+$routes->get('/cetakkartu','RekamMedis::CetakKartu');//CetakRekammedis
+$routes->get('/cetakRM','RekamMedis::CetakRekammedis');//CetakRekammedis
 $routes->get('/rekam-pasien','RekamMedis::pasien');
 $routes->get('/rekam-diagnosis','RekamMedis::diagnosis');
 $routes->get('/rekam-anamnese','RekamMedis::anamnese');
