@@ -5,6 +5,7 @@ namespace App\Controllers;
 use CodeIgniter\RESTful\ResourceController;
 use App\Models\PasienModel;
 use App\Models\HistoryModel;
+use App\Models\PendaftaranModel;
 
 class Pendaftaran extends ResourceController
 {
@@ -18,6 +19,7 @@ class Pendaftaran extends ResourceController
     {
         $this->history =  new HistoryModel();
         $this->model = new PasienModel();
+        $this->pendaftaran = New PendaftaranModel();
         $this->namepage =[
 			'title_meta' => view('partials/title-meta', ['title' => 'Pendaftaran ']),
 			'page_title' => view('partials/page-title', ['title' => 'Pendaftaran'])
@@ -60,20 +62,24 @@ class Pendaftaran extends ResourceController
     public function create()
     {
         $model = $this->model;
+        $pendaftaran = $this->pendaftaran;
         $check = $model->where('id_rekammedis',$this->request->getPost('id_rekammedis'))->first();
         if ($this->request->getMethod() === 'post' && $this->validate($model->validationRules)) {
             
                 if(empty($check)){
                     $model->save($this->request->getPost());
+                    $pendaftaran->save($this->request->getPost());
                     $data =[ 'id_rm'=>$this->request->getPost('id_rekammedis')];
                     $this->history->insert($data);
                 }
                 else{
                     $data =[ 
                         'id_rm'=>$this->request->getPost('id_rekammedis'),
+                        'option'=>$this->request->getPost('poli'),
                         'status'=>'pendding'
                     ];
                     $id = $check['id'];
+                    $pendaftaran->save($this->request->getPost());
                     $this->history->insert($data);
                     $this->model->update($id, $this->request->getPost());
                 }
@@ -168,11 +174,18 @@ class Pendaftaran extends ResourceController
      */
     public function delete($id = null)
     {
-        $data = $this->model->find($id);
+        $data = $this->history->find($id);
+        $pasien = $this->pendaftaran->where('id_rekammedis',$data['id_rm'])->where('poli',$data['option'])->first();
+
         if (!$data) {
             return $this->response->setStatusCode(404)->setBody('Record not found');
         }
-        $this->model->delete($id);
+        else{
+        
+        $this->pendaftaran->delete($pasien['id']);
+        $this->history->delete($id);
         return $this->response->setStatusCode(200)->setBody('Record deleted successfully');
+        // return $this->response->setStatusCode(200)->setBody($pasien);
+        }
     }
 }

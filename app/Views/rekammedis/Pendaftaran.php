@@ -5,7 +5,7 @@
     <?php
         use App\Models\HistoryModel;
         $model = new HistoryModel();
-        $data = $model->JoinAll();
+        $data = $model->where('status','penddin')->JoinAll();
         function hitungUsia($tanggalLahir) {
             // Mengubah tanggal lahir menjadi objek DateTime
             $lahir = new DateTime($tanggalLahir);
@@ -76,10 +76,9 @@
                                             <th class="text-center">Action</th>
                                     </tr>
                                 </thead>
-
                                 <tbody>
                                 <?php foreach($data as  $index => $item ):?>
-                                    
+                                    <span><?=var_dump($item)?></span>
                                     <tr>
                                             <td class="text-center"><?= $index+1 ?></td>
                                             <td class="text-center"><?= $item->tanggal_daftar  ?></td>
@@ -101,7 +100,7 @@
                                                 </a>
                                                 <button
                                                 id="deleteBtn" 
-                                                data-id="<?= $item->id ?>" 
+                                                data-id="<?= $item->history_id ?>" 
                                                 data-name="<?= $item->nama ?>"
                                                 data-url="pendaftaran"
                                                 type="button" 
@@ -109,7 +108,7 @@
                                                     <i class="uil uil-trash-alt"></i>
                                                 </button>
                                             </td>
-                                        </tr>
+                                    </tr>
                                     <?php endforeach; ?>
                                 </tbody>
                             </table>

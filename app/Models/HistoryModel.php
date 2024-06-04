@@ -14,7 +14,7 @@ class HistoryModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['id_rm','status','created_at','updated_at'];
+    protected $allowedFields    = ['id_rm','option','more','status','created_at','updated_at'];
 
     // Dates
     protected $useTimestamps = true;
@@ -23,17 +23,20 @@ class HistoryModel extends Model
     protected $updatedField  = 'updated_at';
     protected $deletedField  = 'deleted_at';
     //  Function call 
-    function JoinAll(){
+    function JoinAll() {
         $data = $this->db->table('History');
-        $data->join('Pasien','Pasien.id_rekammedis = History.id_rm');
-        $data->select('History.id as history_id, Pasien.*');
+        $data->where('status', 'pendding');
+        $data->join('Pendaftaran', 'Pendaftaran.id_rekammedis = History.id_rm AND Pendaftaran.poli = History.option');
+        $data->select('History.id as history_id, History.option as option, History.more as more, Pendaftaran.*');
         $query = $data->get();
         return $query->getResult();
     }
+    
     function Join($id){
         $data = $this->db->table('History');
-        $data->join('Pasien', 'Pasien.id_rekammedis = History.id_rm');
-        $data->select('History.id as history_id, Pasien.*');
+        $data->where('status','pendding');
+        $data->join('Pendaftaran', 'Pendaftaran.id_rekammedis = History.id_rm AND Pendaftaran.poli = History.option');
+        $data->select('History.id as history_id,History.option as option,History.more as more, Pendaftaran.*');
         $data->where('History.id', $id); // Menggunakan 'History.id' sebagai kondisi WHERE
         $query = $data->get();
         return $query->getResult();

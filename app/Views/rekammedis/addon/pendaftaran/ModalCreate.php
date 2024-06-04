@@ -1,7 +1,9 @@
 <?php
+date_default_timezone_set('Asia/Jakarta');
 use App\Models\PasienModel;
 $model = new PasienModel();
 $last = $model->last();
+$date = date('Y-m-d H:i:s');
 ?>
 <div class="modal fade bs-example-modal-lg modal-dialog-scrollable" 
      tabindex="-1" role="dialog" 
@@ -20,10 +22,8 @@ $last = $model->last();
                             <form action="<?= site_url('pendaftaran') ?>" method="post" enctype="multipart/form-data">
                                 <div class="row">
                                     <div class="col">
-                                        <div class="mb-3">
-                                            <label class="form-label" for="formrow-email-input">Tanggal Daftar</label>
-                                            <input required type="date" name="tanggal_daftar" class="form-control" id="formrow-email-input">
-                                        </div>
+                                        
+                                            <input required type="hidden" value="<?=$date?>" name="tanggal_daftar" class="form-control" id="formrow-email-input">
                                     </div>
                                 </div>
                                 <div class="row">
@@ -211,7 +211,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 .then(response => response.json())
                 .then(data => {
                     if (data) {
-                        document.querySelector('input[name="tanggal_daftar"]').value = data.tanggal_daftar || '';
                         document.querySelector('input[name="ktp"]').value = data.ktp || '';
                         document.querySelector('input[name="bpjs"]').value = data.bpjs || '';
                         document.querySelector('input[name="nama"]').value = data.nama || '';

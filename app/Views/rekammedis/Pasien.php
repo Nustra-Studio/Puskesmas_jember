@@ -205,25 +205,8 @@
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col-md-6">
-                                                    <div class="mb-3">
-                                                        <div class="row">
-                                                            <div class="col">
-                                                                <label for="th">Tahun</label>
-                                                                <input type="text" name="th" id="th" class="form-control">
-                                                            </div>
-                                                            <div class="col">
-                                                                <label for="th">Bulan</label>
-                                                                <input type="text" name="th" id="th" class="form-control">
-                                                            </div>
-                                                            <div class="col">
-                                                                <label for="th">Hari</label>
-                                                                <input type="text" name="th" id="th" class="form-control">
-                                                            </div>
-                                                        </div>
-                                                    </div>
                                             </div>
-                                            <div class="col-md-6">
+                                            <div class="col-md-12">
                                                     <div class="mb-3">
                                                         <label class="form-label" for="ayah">Nama Ayah</label>
                                                         <input type="text" value="<?=$item->ayah ?>" name="ayah" id="ayah" class="form-control">

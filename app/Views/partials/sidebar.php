@@ -1,5 +1,6 @@
 
 <!-- ========== Left Sidebar Start ========== -->
+
 <div class="vertical-menu">
 
     <!-- LOGO -->
@@ -80,26 +81,33 @@
                     </a>
                 </li>
                 <?php endif; ?>
-                <?php if($jabatan == "rekammedis"||$jabatan == 'dokter' || $jabatan="admin"): ?>
+                <?php
+                        $rekam_medis = $RekamMedis ?? "normal";
+                        $id = $id_perserta ?? null;
+                    ?>
+                <?php if ($jabatan == "rekammedis" || $jabatan == 'dokter' || ($jabatan == "admin" && $rekam_medis == "normal")): ?>
+                        <li>
+                            <?php if ($rekam_medis == "normal"): ?>
+                                <a href="<?php echo base_url('data-rekammedis'); ?>">
+                                    <i class="uil-heart-medical"></i>
+                                    <span>Rekam Medis </span>
+                                </a>
+                            <?php endif; ?>
+                        </li>
+                    <?php endif; ?>
+
+                <?php
+                        $rekam_medis = $RekamMedis ?? "normal";
+                        $id = $id_perserta ?? null;
+                    ?>
+                <?php if( $rekam_medis !== "normal"): ?>
                 <li>
-                    <a href="<?php echo base_url('data-rekammedis'); ?>">
-                        <i class="uil-clipboard-notes"></i>
-                        <span>Data Pendaftar </span>
-                    </a>
-                </li>
-                <?php endif; ?>
-                <?php if($jabatan == "admin"||$jabatan == "rekammedis"||$jabatan == "dokter" ): ?>
-                <li>
+                    <?php if(($jabatan == "admin" && $rekam_medis !== "normal") || $jabatan == "rekammedis" || $jabatan == "dokter"):?>
                     <a href="javascript: void(1);" class="has-arrow waves-effect">
                         <i class="uil-heart-medical"></i>
                         <span>Rekam Medis</span>
                     </a>
                     <!-- rekam medis -->
-                    <?php
-                        $rekam_medis = $RekamMedis ?? "normal";
-                        $id = $id_perserta ?? null;
-                    ?>
-                    <?php if ($rekam_medis !== "normal"): ?>
                         <ul class="sub-menu" aria-expanded="true">
                             <li>
                                 <a href="<?= base_url("rekam-pasien?id=$id"); ?>">Data Pasien</a>
@@ -117,7 +125,7 @@
                                 <a href="<?= base_url("rekam-obat?id=$id"); ?>">Obat</a>
                             </li>
                         </ul>
-                    <?php endif; ?>
+                    <?php endif;?>
                 </li>
                 <?php endif; ?>
                 <li>
