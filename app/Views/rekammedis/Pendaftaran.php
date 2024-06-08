@@ -78,7 +78,7 @@
                                 </thead>
                                 <tbody>
                                 <?php foreach($data as  $index => $item ):?>
-                                    <span><?=var_dump($item)?></span>
+                                    <!-- <span><?=var_dump($item)?></span> -->
                                     <tr>
                                             <td class="text-center"><?= $index+1 ?></td>
                                             <td class="text-center"><?= $item->tanggal_daftar  ?></td>
