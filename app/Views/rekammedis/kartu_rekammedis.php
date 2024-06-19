@@ -276,7 +276,7 @@
     // window.onafterprint = function(event) {
     //     // Kembali ke URL sebelumnya menggunakan window.history
     //     window.history.back();
-    };
+    // };
 </script>
     </body>
     </html>
