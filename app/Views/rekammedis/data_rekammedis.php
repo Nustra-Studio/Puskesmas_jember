@@ -6,6 +6,7 @@
         use App\Models\HistoryModel;
         $model = new HistoryModel();
         $data = $model->JoinAll();
+        $processed_ids =[];
     ?>
     <?= $title_meta ?>
 
@@ -60,7 +61,13 @@
 
                                 <tbody>
                                 <?php foreach($data as  $index => $item ):?>
-                                    
+                                    <?php
+                                    $id = $item->id;
+                                        if (in_array($id, $processed_ids)) {
+                                            continue;
+                                        }
+                                        $processed_ids[] = $id;
+                                    ?>
                                     <tr>
                                             <td class="text-center"><?= $index+1 ?></td>
                                             <td class="text-center"><?= $item->tanggal_daftar  ?></td>
