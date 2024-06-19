@@ -11,6 +11,17 @@ class Masterdata extends BaseController
 		];
 		return view('datamaster/pasien', $data);
 	}
+	public function pasienedit($id){
+		$data = [
+			'title_meta' => view('partials/title-meta', ['title' => 'Rekam_medis ']),
+			'page_title' => view('partials/page-title', ['title' => 'Rekam Medis']),
+			'id'=>$id,
+		];
+		$model = new PasienModel();
+		// $id_perserta=$model->where('id',$id)->select('id_rekammedis')->first();
+		return view('datamaster/Pasienedit', $data);
+	}
+
 	public function pasiencreate()
 	{
 		// Add

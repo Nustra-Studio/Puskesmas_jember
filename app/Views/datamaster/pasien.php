@@ -53,12 +53,12 @@
 						<?= $page_title ?>
 
                     <div class="row">
-                        <div class="col-12 text-end my-2 me-3"> 
+                        <!-- <div class="col-12 text-end my-2 me-3"> 
                             <button type="button" 
                             class="btn w-lg btn-success waves-effect waves-light" 
                             data-bs-toggle="modal" 
                             data-bs-target=".bs-example-modal-lg">Tambah <i class="uil uil-plus ms-2"></i> </button>
-                        </div>
+                        </div> -->
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-body">
@@ -86,9 +86,9 @@
                                                     <td><?= hitungUsia($item['lahir']) ?></td>
                                                     <td><?=$item['alamat'] ?></td>
                                                     <td> 
-                                                        <button type="button" class="btn btn-danger waves-effect waves-light" id="sa-warning">
-                                                            <i class="uil uil-trash-alt"></i>
-                                                        </button>
+                                                        <a href="pasien/edit/<?=$item['id']?>" class="btn btn-primary waves-effect waves-light" id="sa-warning">
+                                                        <i class="uil uil-pen"></i>
+                                                        </a>
                                                     </td>
                                                 </tr>
                                             <?php endforeach; ?>

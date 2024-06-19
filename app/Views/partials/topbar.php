@@ -29,15 +29,22 @@
         </div>
 
         <div class="d-flex">
-
+        <?php
+            $name = session()->get('name');
+            $id = session()->get('id');
+            use App\Models\UserModel;
+            $model = new UserModel();
+            $foto = $model->where('id',$id)->first();
+            $foto = $foto['foto']; 
+            $url = "/uploads/$foto";
+        ?>
+       
             <div class="dropdown d-inline-block">
                 <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
                     data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <img class="rounded-circle header-profile-user" src="<?php echo base_url('assets/images/users/avatar-4.jpg'); ?>"
+                    <img class="rounded-circle header-profile-user" src="<?php echo base_url($url); ?>"
                         alt="Header Avatar">
-                        <?php
-                            $name = session()->get('name');
-                        ?>
+                       
                     <span class="d-none d-xl-inline-block ms-1 fw-medium font-size-15"><?= $name ?></span>
                     <i class="uil-angle-down d-none d-xl-inline-block font-size-15"></i>
                 </button>

@@ -140,6 +140,20 @@ class RekamMedis extends BaseController
                 return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
             }
         }
+        public function Upasien()
+        {
+            $model = $this->model;
+            $check = $model->where('id_rekammedis',$this->request->getPost('id_rekammedis'))->first();
+            $ids =$this->request->getPost('id'); 
+            if ($this->request->getMethod() === 'post' && $this->validate($model->validationRules)) {
+                        $id = $check['id'];
+                        $this->model->update($id, $this->request->getPost());
+                return redirect()->to(site_url("/pasien/edit/$ids"))->with('success', 'Data saved successfully.');
+            } else {
+                // If validation fails, return to the form with errors
+                return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
+            }
+        }
         public function alergi(){
             $data =$this->request->getJSON();
             $model = $this->obat;
