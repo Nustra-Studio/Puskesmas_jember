@@ -71,12 +71,13 @@
                                             <td class="text-center"><?= $item->alamat  ?></td>
                                             <td class="text-center"><?= $item->category  ?></td>
                                             <?php
-                                                $id = $item->id;
+                                                $id = $item->id_rekammedis;
                                                 $ids = $item->history_id;
+                                                $id_history = $item->id;
                                             ?>
                                             <td> 
                                                 <a
-                                                href="<?= base_url("cetakRM?id=$id"); ?>" 
+                                                href="<?= base_url("cetakRM?id=$id&history=$ids"); ?>" 
                                                     class="btn btn-success waves-effect waves-light" id="">
                                                     <i class="uil uil-print"></i>
                                                 </a>

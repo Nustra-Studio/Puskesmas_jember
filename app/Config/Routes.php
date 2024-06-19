@@ -63,6 +63,7 @@ $routes->get('/rekam-tindakan','RekamMedis::tindakan');
 $routes->get('/rekam-obat','RekamMedis::obat');
 // core Rekam Medis
 $routes->post('/rekammedis/core/pasien','RekamMedis::Cpasien');
+$routes->post('/rekammedis/core/pasien/update','RekamMedis::Upasien');
 $routes->post('/rekammedis/core/alergi','RekamMedis::alergi');
 $routes->post('/rekammedis/core/anamnese','RekamMedis::Canamnese');
 $routes->post('/rekammedis/core/diagnosa','RekamMedis::Cdiagnosa');

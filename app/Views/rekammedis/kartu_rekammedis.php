@@ -4,26 +4,30 @@
     <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cetak Kartu Rekam Medis></title>
+    <title>Cetak Kartu Rekam Medis</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     </head>
     <body>
         <?php
             use App\Models\HistoryModel;
+            use App\Models\ObatModel;
+            use App\Models\AlergiObat;
+            use App\Models\Anamnese;
             $model = new HistoryModel();
             $id = $data['id'];
-            $pasien = $model->Join($id);
+            $pasien = $model->Join($id_history);
             
         ?>
         <!---->
-    <div class="container mt-3">
+    <div class="container-fluid mt-3">
         <div class="row">
             <!-- Pasien -->
             <div class="col-12">
                     <div class="card">
                         <div class="card-body">
                             <h4 class="card-title">Pasien</h4>
+                            <!-- <?=var_dump($id_history)?> -->
                             <div class="row mx-4">
                             <div class="col-lg-12">
                                 <div class="mt-2">
@@ -184,26 +188,7 @@
                                                     </div>
                                             </div>
                                         </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                    <div class="mb-3">
-                                                        <div class="row">
-                                                            <div class="col">
-                                                                <label for="th">Tahun</label>
-                                                                <input type="text" name="th" id="th" class="form-control">
-                                                            </div>
-                                                            <div class="col">
-                                                                <label for="th">Bulan</label>
-                                                                <input type="text" name="th" id="th" class="form-control">
-                                                            </div>
-                                                            <div class="col">
-                                                                <label for="th">Hari</label>
-                                                                <input type="text" name="th" id="th" class="form-control">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                            </div>
-                                            <div class="col-md-6">
+                                            <div class="col-md-12">
                                                     <div class="mb-3">
                                                         <label class="form-label" for="ayah">Nama Ayah</label>
                                                         <input type="text" value="<?=$item->ayah ?>" name="ayah" id="ayah" class="form-control">
@@ -269,12 +254,6 @@
                                                 <div class="mb-3">
                                                     <label for="alamat">Alamat</label>
                                                     <textarea name="alamat" id="alamat" cols="30" rows="5" class="form-control"><?=$item->alamat ?></textarea>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="d-flex flex-wrap gap-3 mt-3">
-                                                    <button type="submit" class="btn btn-primary waves-effect waves-light w-md">Submit</button>
-                                                    <button type="reset" class="btn btn-outline-danger waves-effect waves-light w-md">Reset</button>
                                                 </div>
                                             </div>
                                         </div>

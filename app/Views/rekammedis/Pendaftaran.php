@@ -5,7 +5,7 @@
     <?php
         use App\Models\HistoryModel;
         $model = new HistoryModel();
-        $data = $model->where('status','penddin')->JoinAll();
+        $data = $model->where('status','pending')->JoinAll();
         function hitungUsia($tanggalLahir) {
             // Mengubah tanggal lahir menjadi objek DateTime
             $lahir = new DateTime($tanggalLahir);
@@ -89,7 +89,7 @@
                                             <td class="text-center"><?= $item->alamat  ?></td>
                                             <td class="text-center"><?= $item->category  ?></td>
                                             <?php
-                                                $id = $item->id;
+                                                $id = $item->id_rekammedis;
                                                 $ids = $item->history_id;
                                             ?>
                                             <td> 

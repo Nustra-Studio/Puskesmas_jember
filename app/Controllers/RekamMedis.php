@@ -46,7 +46,7 @@ class RekamMedis extends BaseController
     public function CetakKartu(){
         $id = $this->request->getGet('id');
         $id = $id ?? 1;
-        $data =$this->model->find($id);
+        $data =$this->model->where('id_rekammedis',$id)->first();
         if(empty($data)){
             return redirect()->back();
         }
@@ -54,12 +54,14 @@ class RekamMedis extends BaseController
         return view('rekammedis/kartu', $this->namepage);
     }    public function CetakRekammedis(){
         $id = $this->request->getGet('id');
-        $id = $id ?? 1;
-        $data =$this->model->find($id);
+        $id_history = $this->request->getGet('history');
+        $id = $id ?? 0;
+        $data =$this->model->where('id_rekammedis',$id)->first();
         if(empty($data)){
             return redirect()->back();
         }
         $this->namepage['data'] = $data;
+        $this->namepage['id_history'] = $id_history;
         return view('rekammedis/kartu_rekammedis', $this->namepage);
     }
 

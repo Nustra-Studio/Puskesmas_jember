@@ -47,7 +47,7 @@
                             <div class="row mx-4">
                             <div class="col-lg-12">
                                 <div class="mt-2">
-                            <form action="<?= site_url('rekammedis/core/pasien') ?>" method="post" enctype="multipart/form-data">
+                            <form action="<?= site_url('rekammedis/core/pasien/update') ?>" method="post" enctype="multipart/form-data">
                                 <div class="row">
                                     <div class="col">
                                         <div class="mb-3">
@@ -237,7 +237,6 @@
                                     <div class="col-md-6">
                                         <div class="d-flex flex-wrap gap-3 mt-3">
                                             <button type="submit" class="btn btn-primary waves-effect waves-light w-md">Submit</button>
-                                            <button type="reset" class="btn btn-outline-danger waves-effect waves-light w-md">Reset</button>
                                         </div>
                                     </div>
                                 </div>
