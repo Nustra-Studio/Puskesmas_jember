@@ -174,76 +174,77 @@
 
         <script src="assets/js/app.js"></script>
         <script>
-            // 
-        document.addEventListener('DOMContentLoaded', function() {
-                document.addEventListener('blur', function(event) {
-                    if (event.target.id === 'formrow-id-rekammedis-input') {
-                        var idRekammedis = event.target.value;
-                        if (idRekammedis) {
-                        fetch('/data/pasien?id_rm=' + idRekammedis)
-                            .then(response => response.json())
-                            .then(data => {
-                                console.log(data);
-                                if (data) {
-                                    document.querySelector('input[name="ktp"]').value = data.ktp || '';
-                                    document.querySelector('input[name="bpjs"]').value = data.bpjs || '';
-                                    document.querySelector('input[name="nama"]').value = data.nama || '';
-                                    document.querySelector('input[name="lahir"]').value = data.lahir || '';
-                                    document.querySelector('select[name="gender"]').value = data.gender || '';
-                                    document.querySelector('select[name="category"]').value = data.category || '';
-                                    document.querySelector('select[name="payment"]').value = data.payment || '';
-                                    document.querySelector('input[name="alamat"]').value = data.alamat || '';
-                                    document.querySelector('input[name="no_hp"]').value = data.no_hp || '';
-                                    document.querySelector('select[name="agama"]').value = data.agama || '';
-                                    document.querySelector('select[name="gol_darah"]').value = data.gol_darah || '';
-                                    document.querySelector('input[name="pekerjaan"]').value = data.pekerjaan || '';
-                                    document.querySelector('select[name="pendidikan"]').value = data.pendidikan || '';
-                                    document.querySelector('input[name="ayah"]').value = data.ayah || '';
-                                    document.querySelector('input[name="ibu"]').value = data.ibu || '';
-                                    document.querySelector('input[name="hubungi"]').value = data.hubungi || '';
-                                    document.querySelector('select[name="poli"]').value = data.poli || '';
-                                }
-                            })
-                            .catch(error => console.error('Error fetching data:', error));
+    document.addEventListener('DOMContentLoaded', function() {
+        // Attaching the blur event listener to the specific input field
+        var rekamMedisInput = document.querySelector('.input-id_rekammedis');
+    if (rekamMedisInput) {
+        rekamMedisInput.addEventListener('blur', function(event) {
+            var idRekammedis = event.target.value;
+            if (idRekammedis) {
+                fetch('/data/pasien?id_rm=' + idRekammedis)
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data) {
+                            document.querySelector('.input-ktp').value = data.ktp || '';
+                            document.querySelector('.input-bpjs').value = data.bpjs || '';
+                            document.querySelector('.input-nama').value = data.nama || '';
+                            document.querySelector('.input-lahir').value = data.lahir || '';
+                            document.querySelector('.input-gender').value = data.gender || '';
+                            document.querySelector('.input-category').value = data.category || '';
+                            document.querySelector('.input-payment').value = data.payment || '';
+                            document.querySelector('.input-alamat').value = data.alamat || '';
+                            document.querySelector('.input-no_hp').value = data.no_hp || '';
+                            document.querySelector('.input-agama').value = data.agama || '';
+                            document.querySelector('.input-gol_darah').value = data.gol_darah || '';
+                            document.querySelector('.input-pekerjaan').value = data.pekerjaan || '';
+                            document.querySelector('.input-pendidikan').value = data.pendidikan || '';
+                            document.querySelector('.input-ayah').value = data.ayah || '';
+                            document.querySelector('.input-ibu').value = data.ibu || '';
+                            document.querySelector('.input-hubungi').value = data.hubungi || '';
+                            document.querySelector('.input-poli').value = data.poli || '';
+                        }
+                    })
+                    .catch(error => console.error('Error fetching data:', error));
+            }
+        });
+    }
+
+        // Bootstrap modal event listener
+        $('.modal-update-pendaftaraan').on('show.bs.modal', function(event) {
+            var button = $(event.relatedTarget); // Button that triggered the modal
+            var idRekammedis = button.data('idrm'); // Extract info from data-* attributes
+            // Fetch data from server
+            fetch('/update-rekammedis?id_rm=' + idRekammedis)
+                .then(response => response.json())
+                .then(data => {
+                    if (data) {
+                        document.querySelector('input[name="tanggal_daftar"]').value = data.tanggal_daftar || '';
+                        document.querySelector('input[name="id"]').value = data.id || '';
+                        document.querySelector('input[name="id_rekammedis"]').value = data.id_rekammedis || '';
+                        document.querySelector('input[name="ktp"]').value = data.ktp || '';
+                        document.querySelector('input[name="bpjs"]').value = data.bpjs || '';
+                        document.querySelector('input[name="nama"]').value = data.nama || '';
+                        document.querySelector('input[name="lahir"]').value = data.lahir || '';
+                        document.querySelector('select[name="gender"]').value = data.gender || '';
+                        document.querySelector('select[name="category"]').value = data.category || '';
+                        document.querySelector('select[name="payment"]').value = data.payment || '';
+                        document.querySelector('input[name="alamat"]').value = data.alamat || '';
+                        document.querySelector('input[name="no_hp"]').value = data.no_hp || '';
+                        document.querySelector('select[name="agama"]').value = data.agama || '';
+                        document.querySelector('select[name="gol_darah"]').value = data.gol_darah || '';
+                        document.querySelector('input[name="pekerjaan"]').value = data.pekerjaan || '';
+                        document.querySelector('select[name="pendidikan"]').value = data.pendidikan || '';
+                        document.querySelector('input[name="ayah"]').value = data.ayah || '';
+                        document.querySelector('input[name="ibu"]').value = data.ibu || '';
+                        document.querySelector('input[name="hubungi"]').value = data.hubungi || '';
+                        document.querySelector('select[name="poli"]').value = data.poli || '';
                     }
-                }
-                    });
-                $('.modal-update-pendaftaraan').on('show.bs.modal', function (event) {
-                    var button = $(event.relatedTarget) // Tombol yang memicu modal
-                    var idRekammedis = button.data('idrm') // Ekstrak informasi dari atribut data-id
-                    // Fetch data dari server
-                    fetch('/update-rekammedis?id_rm=' + idRekammedis)
-                        .then(response => response.json())
-                        .then(data => {
-                            // console.log(data);
-                            
-                            if (data) {
-                                document.querySelector('input[name="tanggal_daftar"]').value = data.tanggal_daftar || '';
-                                document.querySelector('input[name="id"]').value = data.id || '';
-                                document.querySelector('input[name="id_rekammedis"]').value = data.id_rekammedis || '';
-                                document.querySelector('input[name="ktp"]').value = data.ktp || '';
-                                document.querySelector('input[name="bpjs"]').value = data.bpjs || '';
-                                document.querySelector('input[name="nama"]').value = data.nama || '';
-                                document.querySelector('input[name="lahir"]').value = data.lahir || '';
-                                document.querySelector('select[name="gender"]').value = data.gender || '';
-                                document.querySelector('select[name="category"]').value = data.category || '';
-                                document.querySelector('select[name="payment"]').value = data.payment || '';
-                                document.querySelector('input[name="alamat"]').value = data.alamat || '';
-                                document.querySelector('input[name="no_hp"]').value = data.no_hp || '';
-                                document.querySelector('select[name="agama"]').value = data.agama || '';
-                                document.querySelector('select[name="gol_darah"]').value = data.gol_darah || '';
-                                document.querySelector('input[name="pekerjaan"]').value = data.pekerjaan || '';
-                                document.querySelector('select[name="pendidikan"]').value = data.pendidikan || '';
-                                document.querySelector('input[name="ayah"]').value = data.ayah || '';
-                                document.querySelector('input[name="ibu"]').value = data.ibu || '';
-                                document.querySelector('input[name="hubungi"]').value = data.hubungi || '';
-                                document.querySelector('select[name="poli"]').value = data.poli || '';
-                            }
-                        })
-                        .catch(error => console.error('Error fetching data:', error));
-                });
-            });    
-        </script>
+                })
+                .catch(error => console.error('Error fetching data:', error));
+        });
+    });
+</script>
+
     </body>
 
 </html>
