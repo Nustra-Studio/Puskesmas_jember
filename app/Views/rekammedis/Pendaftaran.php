@@ -90,7 +90,7 @@
                                     <tr>
                                             <td class="text-center"><?= $index+1 ?></td>
                                             <td class="text-center"><?= $item->tanggal_daftar  ?></td>
-                                            <td class="text-center"><?= $item->id  ?></td>
+                                            <td class="text-center"><?= $item->poli  ?></td>
                                             <td class="text-center"><?= $item->id_rekammedis  ?></td>
                                             <td class="text-center"><?= $item->nama  ?></td>
                                             <td class="text-center"><?= hitungUsia($item->lahir) ?></td>

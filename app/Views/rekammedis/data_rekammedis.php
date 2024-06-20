@@ -7,6 +7,19 @@
         $model = new HistoryModel();
         $data = $model->JoinAll();
         $processed_ids =[];
+        function hitungUsia($tanggalLahir) {
+            // Mengubah tanggal lahir menjadi objek DateTime
+            $lahir = new DateTime($tanggalLahir);
+            $hariIni = new DateTime();
+            
+            // Menghitung selisih antara tanggal lahir dan tanggal hari ini
+            $selisih = $hariIni->diff($lahir);
+        
+            // Menghasilkan string format tahun, bulan, dan hari
+            $usia = $selisih->y . ' tahun ' . $selisih->m . ' bulan ' . $selisih->d . ' hari';
+            
+            return $usia;
+        }
     ?>
     <?= $title_meta ?>
 
@@ -74,7 +87,7 @@
                                             <td class="text-center"><?= $item->poli  ?></td>
                                             <td class="text-center"><?= $item->id_rekammedis  ?></td>
                                             <td class="text-center"><?= $item->nama  ?></td>
-                                            <td class="text-center"><?= $item->usia  ?></td>
+                                            <td class="text-center"><?= hitungUsia($item->lahir) ?></td>
                                             <td class="text-center"><?= $item->alamat  ?></td>
                                             <td class="text-center"><?= $item->category  ?></td>
                                             <?php
