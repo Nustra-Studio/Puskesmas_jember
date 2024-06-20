@@ -69,7 +69,11 @@ class Pendaftaran extends ResourceController
                 if(empty($check)){
                     $model->save($this->request->getPost());
                     $pendaftaran->save($this->request->getPost());
-                    $data =[ 'id_rm'=>$this->request->getPost('id_rekammedis')];
+                    $data =[ 
+                        'id_rm'=>$this->request->getPost('id_rekammedis'),
+                        'option'=>$this->request->getPost('poli'),
+                        'status'=>'pendding'
+                    ];
                     $this->history->insert($data);
                 }
                 else{
