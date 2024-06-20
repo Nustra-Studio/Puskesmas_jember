@@ -115,6 +115,13 @@
                                                 class="deleteBtn btn btn-danger waves-effect waves-light">
                                                     <i class="uil uil-trash-alt"></i>
                                                 </button>
+                                                <button
+                                                data-bs-toggle="modal" 
+                                                data-bs-target=".modal-update-pendaftaraan" 
+                                                data-idrm=<?=$item->id ?>
+                                                type="button" class="btn btn-primary waves-effect waves-light" id="">
+                                                    <i class="uil uil-pen"></i>
+                                                </button>
                                             </td>
                                     </tr>
                                     <?php endforeach; ?>
@@ -125,6 +132,7 @@
                     </div>
                 </div> <!-- end col -->
             </div> <!-- end row -->
+            <?= $this->include('rekammedis/addon/pendaftaran/ModalUpdate') ?>
             <?= $this->include('rekammedis/addon/pendaftaran/ModalCreate') ?>
             </div> <!-- container-fluid -->
         </div>
@@ -165,7 +173,42 @@
         <script src="assets/js/pages/datatables.init.js"></script>
 
         <script src="assets/js/app.js"></script>
-
+        <script>
+                $('.modal-update-pendaftaraan').on('show.bs.modal', function (event) {
+                    var button = $(event.relatedTarget) // Tombol yang memicu modal
+                    var idRekammedis = button.data('idrm') // Ekstrak informasi dari atribut data-id
+                    // Fetch data dari server
+                    fetch('/update-rekammedis?id_rm=' + idRekammedis)
+                        .then(response => response.json())
+                        .then(data => {
+                            console.log(data);
+                            
+                            if (data) {
+                                document.querySelector('input[name="tanggal_daftar"]').value = data.tanggal_daftar || '';
+                                document.querySelector('input[name="id"]').value = data.id || '';
+                                document.querySelector('input[name="id_rekammedis"]').value = data.id_rekammedis || '';
+                                document.querySelector('input[name="ktp"]').value = data.ktp || '';
+                                document.querySelector('input[name="bpjs"]').value = data.bpjs || '';
+                                document.querySelector('input[name="nama"]').value = data.nama || '';
+                                document.querySelector('input[name="lahir"]').value = data.lahir || '';
+                                document.querySelector('select[name="gender"]').value = data.gender || '';
+                                document.querySelector('select[name="category"]').value = data.category || '';
+                                document.querySelector('select[name="payment"]').value = data.payment || '';
+                                document.querySelector('input[name="alamat"]').value = data.alamat || '';
+                                document.querySelector('input[name="no_hp"]').value = data.no_hp || '';
+                                document.querySelector('select[name="agama"]').value = data.agama || '';
+                                document.querySelector('select[name="gol_darah"]').value = data.gol_darah || '';
+                                document.querySelector('input[name="pekerjaan"]').value = data.pekerjaan || '';
+                                document.querySelector('select[name="pendidikan"]').value = data.pendidikan || '';
+                                document.querySelector('input[name="ayah"]').value = data.ayah || '';
+                                document.querySelector('input[name="ibu"]').value = data.ibu || '';
+                                document.querySelector('input[name="hubungi"]').value = data.hubungi || '';
+                                document.querySelector('select[name="poli"]').value = data.poli || '';
+                            }
+                        })
+                        .catch(error => console.error('Error fetching data:', error));
+                });
+        </script>
     </body>
 
 </html>

@@ -33,7 +33,23 @@ class Pendaftaran extends ResourceController
     public function data(){
         return view('rekammedis/data_rekammedis', $this->namepage);
     }
-
+    public function dataupdate()
+    {
+        $model = new PendaftaranModel();
+        $request = $this->request->getGet('id_rm');
+        
+        if (!empty($request)) {
+            $data = $model->where('id', $request)->first();
+            
+            if ($data) {
+                return $this->response->setJSON($data);
+            } else {
+                return $this->response->setJSON(['message' => 'Not Found'])->setStatusCode(404);
+            }
+        } else {
+            return $this->response->setJSON(['message' => 'Not Found'])->setStatusCode(404);
+        }
+    }
     /**
      * Return the properties of a resource object
      *
@@ -90,6 +106,18 @@ class Pendaftaran extends ResourceController
             return redirect()->to(site_url('pendaftaran'))->with('success', 'Data saved successfully.');
         } else {
             // If validation fails, return to the form with errors
+            return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
+        }
+    }
+    public function upgrade(){
+        $model = $this->model;
+        $pendaftaran = $this->pendaftaran;
+        $id = $this->request->getPost('id');
+        if ($this->request->getMethod() === 'post' && $this->validate($model->validationRules)) {
+            $pendaftaran->update($id,$this->request->getPost());
+            return redirect()->to(site_url('pendaftaran'))->with('success', 'success update data pendaftaran');
+        }
+        else{
             return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
         }
     }

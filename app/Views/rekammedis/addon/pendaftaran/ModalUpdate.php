@@ -5,7 +5,7 @@ $model = new PasienModel();
 $last = $model->last();
 $date = date('Y-m-d H:i:s');
 ?>
-<div class="modal fade bs-example-modal-lg modal-dialog-scrollable" 
+<div class="modal fade bs-example-modal-lg modal-update-pendaftaraan modal-dialog-scrollable" 
         tabindex="-1" role="dialog" 
         aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-xl">
@@ -19,24 +19,24 @@ $date = date('Y-m-d H:i:s');
                 <div class="row mx-4">
                     <div class="col-lg-12">
                         <div class="mt-2">
-                            <form action="<?= site_url('pendaftaran') ?>" method="post" enctype="multipart/form-data">
+                            <form action="<?= site_url('pendaftaran/upgrade') ?>" method="post" enctype="multipart/form-data">
                                 <div class="row">
                                     <div class="col">
-                                        
-                                            <input required type="hidden" value="<?=$date?>" name="tanggal_daftar" class="form-control" id="formrow-email-input">
+                                            <input required type="hidden" name="tanggal_daftar" class="form-control" id="formrow-email-input">
+                                            <input class="d-none" type="text" name="id" required>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="mb-3">
                                             <label class="form-label" for="formrow-id-rekammedis-input">No RM</label>
-                                            <input required type="text" value="<?= $last ?>" name="id_rekammedis" class="form-control" id="formrow-id-rekammedis-input">
+                                            <input required type="text" name="id_rekammedis" class="form-control" id="id_rekammedis">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="mb-3">
                                             <label class="form-label" for="NoHp">No Hp</label>
-                                            <input type="text" name="no_hp" id="NoHp" class="form-control">
+                                            <input type="text" name="no_hp"  id="NoHp" class="form-control">
                                         </div>
                                     </div>
                                 </div>
@@ -202,36 +202,5 @@ $date = date('Y-m-d H:i:s');
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    document.getElementById('formrow-id-rekammedis-input').addEventListener('blur', function() {
-        var idRekammedis = this.value;
-        if (idRekammedis) {
-            fetch('/data/pasien?id_rm=' + idRekammedis)
-                .then(response => response.json())
-                .then(data => {
-                    if (data) {
-                        document.querySelector('input[name="ktp"]').value = data.ktp || '';
-                        document.querySelector('input[name="bpjs"]').value = data.bpjs || '';
-                        document.querySelector('input[name="nama"]').value = data.nama || '';
-                        document.querySelector('input[name="lahir"]').value = data.lahir || '';
-                        document.querySelector('select[name="gender"]').value = data.gender || '';
-                        document.querySelector('select[name="category"]').value = data.category || '';
-                        document.querySelector('select[name="payment"]').value = data.payment || '';
-                        document.querySelector('input[name="alamat"]').value = data.alamat || '';
-                        document.querySelector('input[name="no_hp"]').value = data.no_hp || '';
-                        document.querySelector('select[name="agama"]').value = data.agama || '';
-                        document.querySelector('select[name="gol_darah"]').value = data.gol_darah || '';
-                        document.querySelector('input[name="pekerjaan"]').value = data.pekerjaan || '';
-                        document.querySelector('select[name="pendidikan"]').value = data.pendidikan || '';
-                        document.querySelector('input[name="ayah"]').value = data.ayah || '';
-                        document.querySelector('input[name="ibu"]').value = data.ibu || '';
-                        document.querySelector('input[name="hubungi"]').value = data.hubungi || '';
-                        document.querySelector('select[name="poli"]').value = data.poli || '';
-                    }
-                })
-                .catch(error => console.error('Error fetching data:', error));
-        }
-    });
-});
+
 </script>

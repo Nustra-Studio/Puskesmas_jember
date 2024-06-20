@@ -168,8 +168,8 @@
                                                                         <i class="uil uil-trash-alt"></i>
                                                         </button>
                                                     </td>
-                                                    <?php endforeach; ?>
                                                 </tr>
+                                                <?php endforeach; ?>
                                             </tbody>
                                         </table>
                                     </div>

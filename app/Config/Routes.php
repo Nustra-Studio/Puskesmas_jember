@@ -45,6 +45,8 @@ $routes->resource('obat');
 $routes->resource('kasus');
 $routes->resource('pendaftaran');
 $routes->get('/data-rekammedis','Pendaftaran::data');
+$routes->get('/update-rekammedis','Pendaftaran::dataupdate');
+$routes->post('/pendaftaran/upgrade','Pendaftaran::upgrade');
 	// Pasien
 $routes->get('/pasien', 'Masterdata::pasien');
 $routes->add('/pasien/create', 'Masterdata::pasienstore');
