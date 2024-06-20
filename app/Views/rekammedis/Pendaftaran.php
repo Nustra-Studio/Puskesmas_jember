@@ -57,7 +57,7 @@
                     <button type="button" 
                     class="btn w-lg btn-success waves-effect waves-light" 
                     data-bs-toggle="modal" 
-                    data-bs-target=".bs-example-modal-lg">Tambah <i class="uil uil-plus ms-2"></i> </button>
+                    data-bs-target=".modal-pendaftaran-create">Tambah <i class="uil uil-plus ms-2"></i> </button>
                 </div>
                 <div class="col-12">
                     <div class="card">
@@ -174,6 +174,40 @@
 
         <script src="assets/js/app.js"></script>
         <script>
+            // 
+        document.addEventListener('DOMContentLoaded', function() {
+                document.addEventListener('blur', function(event) {
+                    if (event.target.id === 'formrow-id-rekammedis-input') {
+                        var idRekammedis = event.target.value;
+                        if (idRekammedis) {
+                        fetch('/data/pasien?id_rm=' + idRekammedis)
+                            .then(response => response.json())
+                            .then(data => {
+                                console.log(data);
+                                if (data) {
+                                    document.querySelector('input[name="ktp"]').value = data.ktp || '';
+                                    document.querySelector('input[name="bpjs"]').value = data.bpjs || '';
+                                    document.querySelector('input[name="nama"]').value = data.nama || '';
+                                    document.querySelector('input[name="lahir"]').value = data.lahir || '';
+                                    document.querySelector('select[name="gender"]').value = data.gender || '';
+                                    document.querySelector('select[name="category"]').value = data.category || '';
+                                    document.querySelector('select[name="payment"]').value = data.payment || '';
+                                    document.querySelector('input[name="alamat"]').value = data.alamat || '';
+                                    document.querySelector('input[name="no_hp"]').value = data.no_hp || '';
+                                    document.querySelector('select[name="agama"]').value = data.agama || '';
+                                    document.querySelector('select[name="gol_darah"]').value = data.gol_darah || '';
+                                    document.querySelector('input[name="pekerjaan"]').value = data.pekerjaan || '';
+                                    document.querySelector('select[name="pendidikan"]').value = data.pendidikan || '';
+                                    document.querySelector('input[name="ayah"]').value = data.ayah || '';
+                                    document.querySelector('input[name="ibu"]').value = data.ibu || '';
+                                    document.querySelector('input[name="hubungi"]').value = data.hubungi || '';
+                                    document.querySelector('select[name="poli"]').value = data.poli || '';
+                                }
+                            })
+                            .catch(error => console.error('Error fetching data:', error));
+                    }
+                }
+                    });
                 $('.modal-update-pendaftaraan').on('show.bs.modal', function (event) {
                     var button = $(event.relatedTarget) // Tombol yang memicu modal
                     var idRekammedis = button.data('idrm') // Ekstrak informasi dari atribut data-id
@@ -181,7 +215,7 @@
                     fetch('/update-rekammedis?id_rm=' + idRekammedis)
                         .then(response => response.json())
                         .then(data => {
-                            console.log(data);
+                            // console.log(data);
                             
                             if (data) {
                                 document.querySelector('input[name="tanggal_daftar"]').value = data.tanggal_daftar || '';
@@ -208,6 +242,7 @@
                         })
                         .catch(error => console.error('Error fetching data:', error));
                 });
+            });    
         </script>
     </body>
 

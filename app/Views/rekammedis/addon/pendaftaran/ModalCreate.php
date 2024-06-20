@@ -5,7 +5,7 @@ $model = new PasienModel();
 $last = $model->last();
 $date = date('Y-m-d H:i:s');
 ?>
-<div class="modal fade bs-example-modal-lg modal-dialog-scrollable" 
+<div class="modal fade bs-example-modal-lg modal-pendaftaran-create modal-dialog-scrollable" 
         tabindex="-1" role="dialog" 
         aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-xl">
