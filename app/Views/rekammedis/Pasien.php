@@ -50,11 +50,15 @@
                                 <?php foreach($data as $index=>$item): ?>
                                     <form action="<?=site_url('rekammedis/core/pasien')?>" method="post" enctype="multipart/form-data">
                                         <div class="row">
+                                        <?php
+                                            $tanggal_daftar = strtotime($item->tanggal_daftar);
+                                            $tanggal_daftar = date('Y-m-d',$tanggal_daftar);
+                                        ?>
                                             <div class="col">
                                                     <div class="mb-3">
                                                         <input type="hidden" name="id" value="<?=$item->history_id ?>">
                                                         <label class="form-label" for="formrow-email-input">Tanggal Daftar</label>
-                                                        <input require type="date" name="tanggal_daftar"value="<?=$item->tanggal_daftar ?>" class="form-control" id="formrow-email-input">
+                                                        <input require type="date" name="tanggal_daftar"value="<?=$tanggal_daftar ?>" class="form-control" id="formrow-email-input">
                                                     </div>
                                             </div>
                                         </div>
